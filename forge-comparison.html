@@ -53,14 +53,14 @@
         }
         
         .nav-tab {
-            padding: 1.5rem 2.5rem;
+            padding: 1rem 1.5rem;
             cursor: pointer;
             border: none;
             background: none;
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1rem;
+            font-weight: 600;
             color: #666;
-            border-bottom: 4px solid transparent;
+            border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
             white-space: nowrap;
         }
@@ -72,7 +72,7 @@
 
         .nav-tab.active {
             color: #2d5a8a;
-            border-bottom: 4px solid #2d5a8a;
+            border-bottom: 3px solid #2d5a8a;
             background: white;
         }
 
@@ -228,7 +228,7 @@
     </header>
 
     <nav class="nav-tabs">
-        <div class="container">
+        <div class="container" style="display: flex; overflow-x: auto;">
             <button class="nav-tab active" onclick="showComparison('semaphore')">vs Semaphore UI</button>
             <button class="nav-tab" onclick="showComparison('tower')">vs Tower/AWX</button>
             <button class="nav-tab" onclick="showComparison('rundeck')">vs Rundeck</button>
