@@ -898,6 +898,59 @@
         </div>
     </div>
 
+    <script>
+        function showComparison(comparisonId) {
+            // Hide all comparisons
+            const comparisons = document.querySelectorAll('.tab-pane');
+            comparisons.forEach(comparison => {
+                comparison.classList.remove('show', 'active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected comparison
+            const selectedComparison = document.getElementById(comparisonId);
+            if (selectedComparison) {
+                selectedComparison.classList.add('show', 'active');
+            }
+
+            // Activate clicked tab
+            event.target.classList.add('active');
+
+            // Update URL hash
+            window.location.hash = comparisonId;
+        }
+
+        // Show correct tab on page load based on URL hash
+        window.addEventListener('DOMContentLoaded', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const comparison = document.getElementById(hash);
+                if (comparison) {
+                    // Hide all comparisons
+                    document.querySelectorAll('.tab-pane').forEach(c => {
+                        c.classList.remove('show', 'active');
+                    });
+                    // Remove active from all tabs
+                    document.querySelectorAll('.nav-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    // Show the target comparison
+                    comparison.classList.add('show', 'active');
+                    // Activate the correct tab button
+                    const tabButton = document.querySelector(`button[onclick="showComparison('${hash}')"]`);
+                    if (tabButton) {
+                        tabButton.classList.add('active');
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 </html>
 
