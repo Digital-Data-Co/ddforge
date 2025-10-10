@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Data Forge Comparisons - vs Semaphore UI, AWX, Rundeck, GitLab, Jenkins, Spacelift, Tower</title>
+    <title>Digital Data Forge Comparisons - vs Semaphore UI, AWX, Rundeck, GitLab, Jenkins, Spacelift, ConfigOS</title>
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAE1CAYAAADZB20hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAQAElEQVR4Aex9B4BlRZX2d+69+d5743v+p76+/MrSCiJ4S5XaU8l+hYCArC4AC+yyy7IsruxSlsXlRVCWlUUBF1xWEJFFEJBFZBEBQRAQRJBFcs6dc/r07nPvvfe+N85kJmEm4em6v/n3P//++55/d/pO996+dc4995Qse//Xv/93yv+c9p/C2v9fc77y1Ze//Y9X33jDOYv2H/qr/w3xhR38UPPcl73yY+efP/t9//irX/Tc8fM7/u3SSy8948JvfPOZP/3pT6e+/OV/e+WcOXPmCfr/NObA/+wDvH/v3lXnnfv1B04951W3f+2rXxq8/fbbJ19++eXP/NrXrpv89X+/5sR/uOD8Tx177DH3Y+Z/UZo2gSd87WvfuPDcc8+97Xe/u+vpM2fO3PXE4x84cslS66STTtr5xCce2PPud7/rKaeecdpPX/e61z5Mm8CzPJRm/uceYNroH/7h/O99+9vfOvW6/7r27VdecfnSa6+59ujHPv7xH5t+yinffdWrX/XNKdPf/i033HDDA6+d/tc3RsjTIuQviCd97Wtf/8a55371vpnZf522dOneqy7/yrJ/+ugnf3XCCSdcwRr+Cqjpp86fNu3tN9988+OPf+UTv/b4x/3qwbR9qCn/sx7goz/5X5fOOuvMr/7+jt8/45STT1nw3e9+58SHP/IRP/zrV7/q2uO4u551zT9f9W2T39N+8YtfPPkI47DZ/7M94P8L0RuP/+f//Z2TTz7xmwsXLlx15S+v/PSnz/rIh6h+8pnPeOa1l11+2akvuOC8r7DnF/EXiP+h39dGZ54T/z+FuY/9d/3+f+yB/wdlIw9I1Iug7wAAAABJRU5ErkJggg==">
     <style>
         * {
@@ -53,14 +53,14 @@
         }
         
         .nav-tab {
-            padding: 1.25rem 2rem;
+            padding: 1.5rem 2.5rem;
             cursor: pointer;
             border: none;
             background: none;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
             color: #666;
-            border-bottom: 3px solid transparent;
+            border-bottom: 4px solid transparent;
             transition: all 0.3s ease;
             white-space: nowrap;
         }
@@ -72,7 +72,7 @@
 
         .nav-tab.active {
             color: #2d5a8a;
-            border-bottom-color: #2d5a8a;
+            border-bottom: 4px solid #2d5a8a;
             background: white;
         }
 
@@ -222,8 +222,8 @@
                     <h1 style="margin: 0;">Digital Data Forge</h1>
                 </div>
             </a>
-            <p>Open-source automation platform for Ansible, Terraform, and more</p>
-            <p style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.95;">Commercial Support Available | Compliance Dashboard | Compliance Support</p>
+            <p style="text-align: center;">Open-source automation platform for Ansible, Terraform, and more</p>
+            <p style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.95; text-align: center;">Commercial Support Available | Compliance Dashboard | Compliance Support</p>
         </div>
     </header>
 
@@ -235,6 +235,7 @@
             <button class="nav-tab" onclick="showComparison('gitlab')">vs GitLab</button>
             <button class="nav-tab" onclick="showComparison('jenkins')">vs Jenkins</button>
             <button class="nav-tab" onclick="showComparison('spacelift')">vs Spacelift</button>
+            <button class="nav-tab" onclick="showComparison('configos')">vs ConfigOS</button>
         </div>
     </nav>
 
@@ -908,6 +909,194 @@
 
                 <div class="highlight">
                     <p><strong>Perfect for:</strong> Organizations requiring on-premises deployment, air-gapped environments, multi-tool automation (Ansible + Terraform), zero licensing costs, or complete data sovereignty.</p>
+                </div>
+            </div>
+
+                <!-- Forge vs SteelCloud ConfigOS -->
+                <div class="tab-pane fade" id="configos" role="tabpanel" aria-labelledby="nav-configos-tab">
+                <h2>Forge vs SteelCloud ConfigOS</h2>
+                <p class="subtitle">Compliance Automation vs Commercial STIG Hardening</p>
+
+                <div class="intro">
+                    <p><strong>Both Digital Data Forge and SteelCloud ConfigOS address security compliance and automation, but they take fundamentally different approaches.</strong></p>
+                    <p>Digital Data Forge is an automation platform with built-in compliance scanning, compliance dashboard, and commercial support options, while SteelCloud ConfigOS is a commercial solution focused specifically on DISA STIG hardening and remediation.</p>
+                </div>
+
+                <h3>Feature Comparison</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Forge</th>
+                            <th>SteelCloud ConfigOS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>MIT Licensed</strong></td>
+                            <td><span class="emoji">✅</span> YES (full source available)</td>
+                            <td><span class="emoji">❌</span> NO (proprietary)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deployment Model</strong></td>
+                            <td><span class="emoji">✅</span> Self-hosted, single binary or Docker</td>
+                            <td><span class="emoji">⚠️</span> Agent-based or agentless</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Docker Support</strong></td>
+                            <td><span class="emoji">✅</span> YES (optional deployment)</td>
+                            <td><span class="emoji">⚠️</span> Unknown</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Compliance Scanning</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES (DISA STIG focused)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Automated Remediation</strong></td>
+                            <td><span class="emoji">✅</span> YES (via Ansible playbooks)</td>
+                            <td><span class="emoji">✅</span> YES (built-in STIG remediation)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DISA STIG Support</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES (primary focus)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CIS Benchmarks</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Custom Policies</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">⚠️</span> Limited to ConfigOS framework</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Multi-Tool Support</strong></td>
+                            <td><span class="emoji">✅</span> YES (Ansible, Terraform, Bash, PowerShell)</td>
+                            <td><span class="emoji">❌</span> NO (compliance only)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ansible Integration</strong></td>
+                            <td><span class="emoji">✅</span> Native Ansible support</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Terraform/IaC Support</strong></td>
+                            <td><span class="emoji">✅</span> YES (Terraform, OpenTofu)</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Compliance Dashboard</strong></td>
+                            <td><span class="emoji">✅</span> YES (Project, Task, User reporting)</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Built-in STIG Viewer</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">⚠️</span> Unknown</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IaC Review & Compliance Alignment</strong></td>
+                            <td><span class="emoji">✅</span> YES (Review, edit, framework alignment)</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>OOTB Compliance Templates</strong></td>
+                            <td><span class="emoji">✅</span> YES (DoD STIGs, CIS, HIPAA)</td>
+                            <td><span class="emoji">✅</span> YES (STIG focused)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HIPAA Compliance</strong></td>
+                            <td><span class="emoji">✅</span> YES (Automated OOTB)</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Secret Manager Integrations</strong></td>
+                            <td><span class="emoji">✅</span> YES (Vault, Ansible Vault, Azure, AWS, GCP)</td>
+                            <td><span class="emoji">⚠️</span> Unknown</td>
+                        </tr>
+                        <tr>
+                            <td><strong>API Support</strong></td>
+                            <td><span class="emoji">✅</span> YES (full REST API)</td>
+                            <td><span class="emoji">⚠️</span> Limited API</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Scheduled Scans</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Report Formats</strong></td>
+                            <td><span class="emoji">✅</span> ARF, HTML, CSV</td>
+                            <td><span class="emoji">✅</span> Multiple formats</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LDAP/AD Integration</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RBAC (Role-Based Access)</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Multi-OS Support</strong></td>
+                            <td><span class="emoji">✅</span> Linux, Windows (via runners)</td>
+                            <td><span class="emoji">✅</span> RHEL, Windows Server</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cloud Support</strong></td>
+                            <td><span class="emoji">✅</span> AWS, Azure, GCP (via Terraform)</td>
+                            <td><span class="emoji">⚠️</span> Limited cloud support</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Air-gapped Environments</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Resource Requirements</strong></td>
+                            <td><span class="emoji">✅</span> Low (512MB+ RAM)</td>
+                            <td><span class="emoji">⚠️</span> Moderate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Setup Complexity</strong></td>
+                            <td><span class="emoji">✅</span> Simple (single binary or Docker)</td>
+                            <td><span class="emoji">⚠️</span> Requires commercial setup</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Learning Curve</strong></td>
+                            <td><span class="emoji">⚠️</span> Moderate (Ansible knowledge helpful)</td>
+                            <td><span class="emoji">⚠️</span> Moderate (STIG expertise needed)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Community Support</strong></td>
+                            <td><span class="emoji">✅</span> Active community</td>
+                            <td><span class="emoji">⚠️</span> Commercial support only</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vendor Lock-in</strong></td>
+                            <td><span class="emoji">✅</span> NONE (MIT licensed, standard tools)</td>
+                            <td><span class="emoji">❌</span> HIGH (proprietary solution)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="feature-section">
+                    <h3>Why Choose Forge Over ConfigOS?</h3>
+                    <p><strong>Forge gives you comprehensive compliance capabilities plus general automation in one platform.</strong></p>
+                    
+                    <p>Choose ConfigOS if you require a vendor support contract with SLA, prefer an established DoD/Federal vendor relationship, only need compliance (not general automation), or want purpose-built STIG-focused tooling.</p>
+                    
+                    <p>For most organizations, Forge provides better flexibility: it's MIT licensed, extensible, and does everything ConfigOS does (compliance scanning + remediation) while also being a full automation platform for Ansible, Terraform, and more.</p>
+                </div>
+
+                <div class="highlight">
+                    <p><strong>Bottom Line:</strong> Forge is MIT licensed and provides comprehensive compliance capabilities plus general automation in one platform. Choose Forge if you need compliance dashboard, STIG viewer, IaC compliance alignment, multi-tool support, and no vendor lock-in.</p>
                 </div>
             </div>
         </div>
