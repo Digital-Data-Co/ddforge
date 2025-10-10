@@ -478,11 +478,6 @@
                             <td><span class="emoji">✅</span> YES (more complex)</td>
                         </tr>
                         <tr>
-                            <td><strong>Cost</strong></td>
-            <td><span class="emoji">✅</span> FREE</td>
-                            <td><span class="emoji">❌</span> Tower: Expensive per-node pricing</td>
-                        </tr>
-                        <tr>
                             <td><strong>Installation time</strong></td>
                             <td><span class="emoji">✅</span> 5 minutes</td>
                             <td><span class="emoji">❌</span> Hours to days</td>
@@ -888,11 +883,6 @@
                             <td><span class="emoji">⚠️</span> Private workers (extra cost)</td>
                         </tr>
                         <tr>
-                            <td><strong>Cost</strong></td>
-                            <td><span class="emoji">✅</span> FREE</td>
-                            <td><span class="emoji">❌</span> Expensive ($500+/month)</td>
-                        </tr>
-                        <tr>
                             <td><strong>Data sovereignty</strong></td>
                             <td><span class="emoji">✅</span> Complete control</td>
                             <td><span class="emoji">❌</span> Data in cloud</td>
@@ -911,8 +901,8 @@
                     <h4>1. Own Your Infrastructure</h4>
                     <p>Spacelift is SaaS-only, meaning your infrastructure state and secrets live in someone else's cloud. Forge runs on-premises, giving you complete control over your data, compliance, and security.</p>
 
-                    <h4>2. Zero Licensing Costs</h4>
-                    <p>Spacelift pricing starts at hundreds of dollars per month and scales quickly. Forge is MIT licensed and completely free, whether you're managing 10 servers or 10,000.</p>
+                    <h4>2. Complete Control</h4>
+                    <p>Spacelift is a SaaS platform where your infrastructure state lives in their cloud. Forge is MIT licensed and runs on your infrastructure, whether you're managing 10 servers or 10,000.</p>
 
                     <h4>3. Works in Air-Gapped Environments</h4>
                     <p>Many regulated industries (finance, defense, healthcare) require air-gapped networks. Spacelift cannot work in these environments. Forge works anywhere - no internet required.</p>
@@ -928,7 +918,7 @@
                 </div>
 
                 <div class="highlight">
-                    <p><strong>Perfect for:</strong> Organizations requiring on-premises deployment, air-gapped environments, multi-tool automation (Ansible + Terraform), zero licensing costs, or complete data sovereignty.</p>
+                    <p><strong>Perfect for:</strong> Organizations requiring on-premises deployment, air-gapped environments, multi-tool automation (Ansible + Terraform), or complete data sovereignty.</p>
                 </div>
 
                 <div style="text-align: center; margin-top: 3rem;">
@@ -1111,12 +1101,90 @@
                 </table>
 
                 <div class="feature-section">
-                    <h3>Why Choose Forge Over ConfigOS?</h3>
-                    <p><strong>Forge gives you comprehensive compliance capabilities plus general automation in one platform.</strong></p>
+                    <h3>Detailed Comparison</h3>
+
+                    <h4>1. Compliance Capabilities</h4>
                     
-                    <p>Choose ConfigOS if you require a vendor support contract with SLA, prefer an established DoD/Federal vendor relationship, only need compliance (not general automation), or want purpose-built STIG-focused tooling.</p>
+                    <p><strong>Forge: Comprehensive Compliance Suite</strong></p>
+                    <p>Digital Data Forge provides a complete compliance platform with advanced features:</p>
+                    <ul>
+                        <li><strong>Built-in STIG Viewer:</strong> View and analyze Security Technical Implementation Guides directly in the platform</li>
+                        <li><strong>Compliance Dashboard:</strong> Real-time reporting with Project, Task, and User-level compliance metrics</li>
+                        <li><strong>OOTB Templates:</strong> Pre-built automated compliance for DoD STIGs, CIS Benchmarks, and HIPAA</li>
+                        <li><strong>IaC Compliance:</strong> Review, edit, and align Infrastructure as Code (Terraform, Ansible) with compliance frameworks</li>
+                        <li><strong>Framework Integration:</strong> Native integration with OpenSCAP and other compliance frameworks</li>
+                        <li><strong>DISA STIGs:</strong> Complete support for all RHEL/CentOS/Ubuntu/Windows STIGs</li>
+                        <li><strong>CIS Benchmarks:</strong> Full support for industry-standard CIS configurations</li>
+                        <li><strong>HIPAA Compliance:</strong> Automated HIPAA compliance scanning and reporting</li>
+                        <li><strong>Remediation:</strong> Ansible's extensive module library for automated remediation</li>
+                        <li><strong>Secret Management:</strong> Native integrations with Hashicorp Vault, Ansible Vault, Azure Key Vault, AWS Secrets Manager, GCP Secret Manager</li>
+                        <li><strong>Reporting:</strong> Comprehensive reports, HTML dashboards, CSV exports, audit trails</li>
+                        <li><strong>Flexibility:</strong> Not limited to compliance - full automation platform</li>
+                    </ul>
+
+                    <p><strong>SteelCloud ConfigOS: Purpose-Built STIG Hardening</strong></p>
+                    <p>ConfigOS is specifically designed for DISA STIG compliance with automated remediation:</p>
+                    <ul>
+                        <li><strong>STIG Focus:</strong> Deep STIG expertise and automated remediation</li>
+                        <li><strong>Windows Support:</strong> Strong Windows STIG support</li>
+                        <li><strong>Fast Scanning:</strong> Optimized for rapid compliance checks</li>
+                        <li><strong>Automated Fixes:</strong> One-click STIG remediation (within scope)</li>
+                        <li><strong>Reporting:</strong> DoD/Federal compliance reporting</li>
+                        <li><strong>Limitation:</strong> Only does compliance - no general automation</li>
+                    </ul>
+
+                    <h4>2. Automation & Flexibility</h4>
                     
-                    <p>For most organizations, Forge provides better flexibility: it's MIT licensed, extensible, and does everything ConfigOS does (compliance scanning + remediation) while also being a full automation platform for Ansible, Terraform, and more.</p>
+                    <p><strong>Forge: Universal Automation Platform</strong></p>
+                    <p>Forge is not just a compliance tool - it's a complete automation platform:</p>
+                    <ul>
+                        <li><strong>Ansible:</strong> Full native Ansible playbook support</li>
+                        <li><strong>Terraform/OpenTofu:</strong> Infrastructure as Code management</li>
+                        <li><strong>Bash Scripts:</strong> Run any shell scripts</li>
+                        <li><strong>PowerShell:</strong> Windows automation support</li>
+                        <li><strong>Custom Tasks:</strong> Create any workflow you need</li>
+                        <li><strong>Scheduling:</strong> Cron-based task scheduling</li>
+                        <li><strong>Inventory Management:</strong> Dynamic inventory support</li>
+                        <li><strong>Secret Management:</strong> Vault integration for credentials</li>
+                    </ul>
+
+                    <p><strong>SteelCloud ConfigOS: Compliance Only</strong></p>
+                    <p>ConfigOS is focused solely on compliance scanning and hardening:</p>
+                    <ul>
+                        <li><strong>Purpose-Built:</strong> STIG hardening only</li>
+                        <li><strong>Limited Scope:</strong> Cannot be used for general automation</li>
+                        <li><strong>No IaC Support:</strong> Doesn't support Terraform or other IaC tools</li>
+                        <li><strong>No Ansible:</strong> No Ansible integration</li>
+                    </ul>
+
+                    <p><strong>🎯 Key Insight: One Tool vs. Multiple Tools</strong></p>
+                    <p>With Forge, you get compliance scanning <strong>AND</strong> general automation in one platform. With ConfigOS, you need ConfigOS for compliance, then Ansible/Terraform/etc for automation - managing multiple tools, licenses, and integrations.</p>
+
+                    <h4>3. Use Cases & Best Fit</h4>
+                    
+                    <p><strong>✅ Choose Forge If You Need:</strong></p>
+                    <ul>
+                        <li>Built-in STIG Viewer: Direct access to Security Technical Implementation Guides in the UI</li>
+                        <li>Compliance Dashboard: Real-time Project, Task, and User-level compliance reporting</li>
+                        <li>IaC Compliance: Review, edit, and align Infrastructure as Code with compliance frameworks</li>
+                        <li>OOTB Compliance: Pre-built templates for DoD STIGs, CIS Benchmarks, and HIPAA</li>
+                        <li>Multi-Framework: Integration with OpenSCAP and other compliance frameworks</li>
+                        <li>Secret Management: Native integrations with Vault, Azure, AWS, GCP secret managers</li>
+                        <li>Flexibility: Compliance + general automation in one tool</li>
+                        <li>MIT Licensed: Full source code access for auditing/customization</li>
+                        <li>Multi-Tool Support: Ansible, Terraform, Bash, PowerShell in one platform</li>
+                        <li>No Vendor Lock-in: Standard tools and formats</li>
+                        <li>Cloud & On-Prem: Works anywhere, including air-gapped</li>
+                        <li>Commercial Support: Community and commercial support options</li>
+                    </ul>
+
+                    <p><strong>⚠️ Choose ConfigOS If You Need:</strong></p>
+                    <ul>
+                        <li>Windows STIG Expertise: Deep Windows STIG hardening (though Forge can do this too with Ansible)</li>
+                        <li>Vendor Support: Prefer established vendor support contract</li>
+                        <li>DoD/Federal Pedigree: Vendor with established DoD presence</li>
+                        <li>Compliance Only: Only need compliance, not general automation</li>
+                    </ul>
                 </div>
 
                 <div class="highlight">
