@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Data Forge - Open Source Infrastructure Automation & Compliance Platform</title>
+    <meta name="description" content="Digital Data Forge is a powerful open-source automation platform for Ansible, Terraform, and infrastructure management with built-in compliance dashboard and STIG viewer.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a2332 0%, #2d5a8a 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero .features-list {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2d5a8a;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1a2332;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #2d5a8a;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .comparisons-section {
+            background: white;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .comparison-card:hover {
+            border-color: #2d5a8a;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(45, 90, 138, 0.15);
+        }
+
+        .comparison-card h3 {
+            color: #1a2332;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-card .vs {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d5a8a;
+            margin: 0.5rem 0;
+        }
+
+        .comparison-card p {
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        .comparison-card .learn-more {
+            color: #2d5a8a;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #2d5a8a 0%, #1a2332 100%);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .footer {
+            background: #1a2332;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="logo-container">
+                <img src="favicon.png" alt="Digital Data Forge Logo">
+                <h1>Digital Data Forge</h1>
+            </div>
+            <p class="tagline">Open Source Infrastructure Automation & Compliance Platform</p>
+            <p class="features-list">Ansible • Terraform • OpenTofu • PowerShell • Compliance Dashboard • STIG Viewer</p>
+            
+            <div class="cta-buttons">
+                <a href="https://github.com/ansible-semaphore/semaphore" class="btn btn-primary" target="_blank">Get Started Free</a>
+                <a href="#comparisons" class="btn btn-secondary">See Comparisons</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Digital Data Forge?</h2>
+            <p class="section-subtitle">The modern, lightweight alternative to complex enterprise automation tools</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Written in pure Go with minimal resource requirements. Runs on 512MB RAM with instant startup.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Built-in Compliance</h3>
+                    <p>STIG Viewer, Compliance Dashboard, OpenSCAP integration, and OOTB templates for DoD STIGs, CIS, and HIPAA.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>5-Minute Setup</h3>
+                    <p>Single binary deployment or Docker container. No Kubernetes, Java, or complex dependencies required.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Multi-Tool Support</h3>
+                    <p>Native support for Ansible, Terraform, OpenTofu, Bash, and PowerShell. One platform for all automation.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Enterprise Secrets</h3>
+                    <p>Integrates with Hashicorp Vault, Ansible Vault, Azure Key Vault, AWS Secrets Manager, and GCP Secret Manager.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Zero Cost, MIT Licensed</h3>
+                    <p>Completely free and open source. Commercial support available when you need it.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>IaC Editor & Validator</h3>
+                    <p>Built-in code validation and editing with compliance framework alignment.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Works Anywhere</h3>
+                    <p>On-premises, air-gapped, edge, cloud, or hybrid. Complete data sovereignty.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Compliance Dashboard</h3>
+                    <p>Project, Task, and User-level compliance reporting with built-in analytics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section stats-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">By The Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h4>~50MB</h4>
+                    <p>Binary Size</p>
+                </div>
+                <div class="stat-item">
+                    <h4>&lt;5 Min</h4>
+                    <p>Setup Time</p>
+                </div>
+                <div class="stat-item">
+                    <h4>512MB</h4>
+                    <p>Min RAM</p>
+                </div>
+                <div class="stat-item">
+                    <h4>$0</h4>
+                    <p>Licensing Cost</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparisons" class="section comparisons-section">
+        <div class="container">
+            <h2 class="section-title">See How Forge Compares</h2>
+            <p class="section-subtitle">Discover why teams are switching from complex enterprise tools to Forge</p>
+
+            <div class="comparison-grid">
+                <a href="forge-comparison.html#semaphore" class="comparison-card">
+                    <h3>Digital Data Forge</h3>
+                    <div class="vs">vs</div>
+                    <h3>Semaphore UI</h3>
+                    <p>Both built on Go with similar architectures. Forge adds comprehensive compliance features.</p>
+                    <span class="learn-more">Compare Features →</span>
+                </a>
+
+                <a href="forge-comparison.html#tower" class="comparison-card">
+                    <h3>Digital Data Forge</h3>
+                    <div class="vs">vs</div>
+                    <h3>Ansible Tower/AWX</h3>
+                    <p>Simpler setup, lower resources, multi-tool support, and no expensive per-node licensing.</p>
+                    <span class="learn-more">Compare Features →</span>
+                </a>
+
+                <a href="forge-comparison.html#rundeck" class="comparison-card">
+                    <h3>Digital Data Forge</h3>
+                    <div class="vs">vs</div>
+                    <h3>Rundeck</h3>
+                    <p>No Java required. Modern UI, native Ansible/Terraform support, 10x less memory.</p>
+                    <span class="learn-more">Compare Features →</span>
+                </a>
+
+                <a href="forge-comparison.html#gitlab" class="comparison-card">
+                    <h3>Digital Data Forge</h3>
+                    <div class="vs">vs</div>
+                    <h3>GitLab CI</h3>
+                    <p>Purpose-built for operations. Much simpler than GitLab, with native IaC support.</p>
+                    <span class="learn-more">Compare Features →</span>
+                </a>
+
+                <a href="forge-comparison.html#jenkins" class="comparison-card">
+                    <h3>Digital Data Forge</h3>
+                    <div class="vs">vs</div>
+                    <h3>Jenkins</h3>
+                    <p>Escape plugin hell. Modern security, no Java, built-in features, better UX.</p>
+                    <span class="learn-more">Compare Features →</span>
+                </a>
+
+                <a href="forge-comparison.html#spacelift" class="comparison-card">
+                    <h3>Digital Data Forge</h3>
+                    <div class="vs">vs</div>
+                    <h3>Spacelift</h3>
+                    <p>Own your infrastructure. Zero licensing costs, works air-gapped, multi-tool support.</p>
+                    <span class="learn-more">Compare Features →</span>
+                </a>
+
+                <a href="forge-vs-configos.html" class="comparison-card" style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-color: #f39c12;">
+                    <h3>Digital Data Forge</h3>
+                    <div class="vs" style="color: #d68910;">vs</div>
+                    <h3>SteelCloud ConfigOS</h3>
+                    <p>Open source vs commercial. Full comparison of compliance automation capabilities.</p>
+                    <span class="learn-more" style="color: #d68910;">Compare Features →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Ready to Get Started?</h2>
+            <p class="section-subtitle">Download Forge today and see the difference</p>
+            
+            <div class="cta-buttons">
+                <a href="https://github.com/ansible-semaphore/semaphore/releases" class="btn btn-primary" target="_blank">Download Latest Release</a>
+                <a href="https://docs.ansible-semaphore.com/" class="btn btn-secondary" target="_blank">View Documentation</a>
+            </div>
+
+            <p style="margin-top: 2rem; color: #666;">
+                <strong>Quick Start:</strong> <code>docker run -p 3000:3000 semaphoreui/semaphore:latest</code>
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Digital Data Forge - Open Source Automation & Compliance Platform</p>
+            <p style="margin-top: 0.5rem;">
+                MIT Licensed | 
+                <a href="https://github.com/ansible-semaphore/semaphore" target="_blank">GitHub</a> | 
+                Commercial Support Available
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+
+

@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Data Forge Comparisons - vs Semaphore UI, AWX, Rundeck, GitLab, Jenkins, Spacelift, Tower</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAE1CAYAAADZB20hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAQAElEQVR4Aex9B4BlRZX2d+69+d5743v+p76+/MrSCiJ4S5XaU8l+hYCArC4AC+yyy7IsruxSlsXlRVCWlUUBF1xWEJFFEJBFZBEBQRAQRJBFcs6dc/r07nPvvfe+N85kJmEm4em6v/n3P//++55/d/pO996+dc4995Qse//Xv/93yv+c9p/C2v9fc77y1Ze//Y9X33jDOYv2H/qr/w3xhR38UPPcl73yY+efP/t9//irX/Tc8fM7/u3SSy8948JvfPOZP/3pT6e+/OV/e+WcOXPmCfr/NObA/+wDvH/v3lXnnfv1B04951W3f+2rXxq8/fbbJ19++eXP/NrXrpv89X+/5sR/uOD8Tx177DH3Y+Z/UZo2gSd87WvfuPDcc8+97Xe/u+vpM2fO3PXE4x84cslS66STTtr5xCce2PPud7/rKaeecdpPX/e61z5Mm8CzPJRm/uceYNroH/7h/O99+9vfOvW6/7r27VdecfnSa6+59ujHPv7xH5t+yinffdWrX/XNKdPf/i033HDDA6+d/tc3RsjTIuQviCd97Wtf/8a55371vpnZf522dOneqy7/yrJ/+ugnf3XCCSdcwRr+Cqjpp86fNu3tN9988+OPf+UTv/b4x/3qwbR9qCn/sx7goz/5X5fOOuvMr/7+jt8/45STT1nw3e9+58SHP/IRP/zrV7/q2uO4u551zT9f9W2T39N+8YtfPPkI47DZ/7M94P8L0RuP/+f//Z2TTz7xmwsXLlx15S+v/PSnz/rIh6h+8pnPeOa1l11+2akvuOC8r7DnF/EXiP+h39dGZ54T/z+FuY/9d/3+f+yB/wdlIw9I1Iug7wAAAABJRU5ErkJggg==">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a2332 0%, #2d5a8a 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Bootstrap Nav Tab Overrides for CMSMax */
+        #nav-tab {
+            background: white !important;
+            border-bottom: 2px solid #e0e0e0 !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 100 !important;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
+        }
+        
+        .nav-link {
+            color: #666 !important;
+            font-weight: 500 !important;
+        }
+        
+        .nav-link:hover {
+            color: #2d5a8a !important;
+            background: #f9f9f9 !important;
+        }
+        
+        .nav-link.active {
+            color: #2d5a8a !important;
+            border-bottom: 3px solid #2d5a8a !important;
+            background: white !important;
+        }
+
+        .content {
+            background: white;
+            margin: 2rem auto;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .tab-pane h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .tab-pane h3 {
+            font-size: 1.5rem;
+            color: #2d5a8a;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .tab-pane h4 {
+            font-size: 1.2rem;
+            color: #555;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .tab-pane .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        thead {
+            background: linear-gradient(135deg, #1a2332 0%, #2d5a8a 100%);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tbody tr:hover {
+            background: #f9f9f9;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .feature-section {
+            margin: 2rem 0;
+        }
+
+        .feature-section p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .feature-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background: #e8f0f7;
+            border-left: 4px solid #2d5a8a;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .emoji {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        /* Scrollbar styling for nav tabs */
+        #nav-tab::-webkit-scrollbar {
+            height: 4px !important;
+        }
+
+        #nav-tab::-webkit-scrollbar-track {
+            background: #f1f1f1 !important;
+        }
+
+        #nav-tab::-webkit-scrollbar-thumb {
+            background: #2d5a8a !important;
+            border-radius: 4px !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="header" style="background: linear-gradient(135deg, #1a2332 0%, #2d5a8a 100%) !important; color: white !important; padding: 2rem 0 !important; box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;">
+        <div class="container">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAE1CAYAAADZB20hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAQAElEQVR4Aex9B4BlRZX2d+69+d5743v+p76+/MrSCiJ4S5XaU8l+hYCArC4AC+yyy7IsruxSlsXlRVCWlUUBF1xWEJFFEJBFZBEBQRAQRJBFcs6dc/r07nPvvfe+N85kJmEm4em6v/n3P//++55/d/pO996+dc4995Qse//Xv/93yv+c9p/C2v9fc77y1Ze//Y9X33jDOYv2H/qr/w3xhR38UPPcl73yY+efP/t9//irX/Tc8fM7/u3SSy8948JvfPOZP/3pT6e+/OV/e+WcOXPmCfr/NObA/+wDvH/v3lXnnfv1B04951W3f+2rXxq8/fbbJ19++eXP/NrXrpv89X+/5sR/uOD8Tx177DH3Y+Z/UZo2gSd87WvfuPDcc8+97Xe/u+vpM2fO3PXE4x84cslS66STTtr5xCce2PPud7/rKaeecdpPX/e61z5Mm8CzPJRm/uceYNroH/7h/O99+9vfOvW6/7r27VdecfnSa6+59ujHPv7xH5t+yinffdWrX/XNKdPf/i033HDDA6+d/tc3RsjTIuQviCd97Wtf/8a55371vpnZf522dOneqy7/yrJ/+ugnf3XCCSdcwRr+Cqjpp86fNu3tN9988+OPf+UTv/b4x/3qwbR9qCn/sx7goz/5X5fOOuvMr/7+jt8/45STT1nw3e9+58SHP/IRP/zrV7/q2uO4u551zT9f9W2T39N+8YtfPPkI47DZ/7M94P8L0RuP/+f//Z2TTz7xmwsXLlx15S+v/PSnz/rIh6h+8pnPeOa1l11+2akvuOC8r7DnF/EXiP+h39dGZ54T/z+FuY/9d/3+f+yB/wdlIw9I1Iug7wAAAABJRU5ErkJggg==" alt="Digital Data Forge Logo" style="width: 60px; height: 60px;">
+                <h1 style="margin: 0;">Digital Data Forge</h1>
+            </div>
+            <p>Open-source automation platform for Ansible, Terraform, and more</p>
+            <p style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.95;">Commercial Support Available | Compliance Dashboard | Compliance Support</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <button class="nav-link active" id="nav-semaphore-tab" data-bs-toggle="tab" data-bs-target="#semaphore" type="button" role="tab" aria-controls="semaphore" aria-selected="true">vs Semaphore UI</button>
+            <button class="nav-link" id="nav-tower-tab" data-bs-toggle="tab" data-bs-target="#tower" type="button" role="tab" aria-controls="tower" aria-selected="false">vs Tower/AWX</button>
+            <button class="nav-link" id="nav-rundeck-tab" data-bs-toggle="tab" data-bs-target="#rundeck" type="button" role="tab" aria-controls="rundeck" aria-selected="false">vs Rundeck</button>
+            <button class="nav-link" id="nav-gitlab-tab" data-bs-toggle="tab" data-bs-target="#gitlab" type="button" role="tab" aria-controls="gitlab" aria-selected="false">vs GitLab</button>
+            <button class="nav-link" id="nav-jenkins-tab" data-bs-toggle="tab" data-bs-target="#jenkins" type="button" role="tab" aria-controls="jenkins" aria-selected="false">vs Jenkins</button>
+            <button class="nav-link" id="nav-spacelift-tab" data-bs-toggle="tab" data-bs-target="#spacelift" type="button" role="tab" aria-controls="spacelift" aria-selected="false">vs Spacelift</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <div class="tab-content" id="nav-tabContent">
+                <!-- Forge vs Semaphore UI -->
+                <div class="tab-pane fade show active" id="semaphore" role="tabpanel" aria-labelledby="nav-semaphore-tab">
+                <h2>Forge vs Semaphore UI</h2>
+                <p class="subtitle">Why Forge is a great alternative to Semaphore UI</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Forge</th>
+                            <th>Semaphore UI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Has FOSS version</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>License</strong></td>
+                            <td><span class="emoji">✅</span> MIT License</td>
+                            <td><span class="emoji">✅</span> MIT License</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ease of setup and maintenance</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Efficient use of CPU and RAM</strong></td>
+                            <td><span class="emoji">✅</span> YES, written in pure Go</td>
+                            <td><span class="emoji">✅</span> YES, written in pure Go</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can operate without Kubernetes, Docker, Java, etc</strong></td>
+                            <td><span class="emoji">✅</span> YES, single binary or Docker</td>
+                            <td><span class="emoji">✅</span> YES, single binary or Docker</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Docker Support</strong></td>
+                            <td><span class="emoji">✅</span> YES (optional deployment method)</td>
+                            <td><span class="emoji">⚠️</span> Unknown</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Ansible playbooks</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Terraform/OpenTofu code</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Bash scripts</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support remote runners</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LDAP/AD Authentication</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>API Support</strong></td>
+                            <td><span class="emoji">✅</span> YES, full REST API</td>
+                            <td><span class="emoji">✅</span> YES, full REST API</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Built-in Compliance Dashboard</strong></td>
+                            <td><span class="emoji">✅</span> YES (Project, Task, User reporting)</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Built-in STIG Viewer</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IaC Review & Compliance Alignment</strong></td>
+                            <td><span class="emoji">✅</span> YES (Review, edit, framework alignment)</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Compliance Framework Integration</strong></td>
+                            <td><span class="emoji">✅</span> YES (OpenSCAP, DoD STIGs, CIS, HIPAA)</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>OOTB Compliance Templates</strong></td>
+                            <td><span class="emoji">✅</span> YES (DoD STIGs, CIS Benchmark, HIPAA)</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Secret Manager Integrations</strong></td>
+                            <td><span class="emoji">✅</span> YES (Vault, Azure, AWS, GCP)</td>
+                            <td><span class="emoji">⚠️</span> Limited</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Infrastructure Code Validator & Editor</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">🤷</span> Unknown</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Multiple Database Support</strong></td>
+                            <td><span class="emoji">✅</span> YES (BoltDB, MySQL, PostgreSQL)</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Commercial Support Available</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES (Semaphore Pro)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="feature-section">
+                    <h3>What Makes Digital Data Forge Stand Out?</h3>
+
+                    <h4>1. Comprehensive Compliance Suite</h4>
+                    <p>Digital Data Forge includes a full compliance suite with unique features not found in Semaphore UI:</p>
+                    <ul>
+                        <li><strong>Built-in STIG Viewer:</strong> View and analyze Security Technical Implementation Guides directly in the UI</li>
+                        <li><strong>Compliance Dashboard:</strong> Comprehensive reporting with Project, Task, and User-level compliance metrics</li>
+                        <li><strong>OOTB Compliance Templates:</strong> Pre-built automated compliance for DoD STIGs, CIS Benchmarks, and HIPAA</li>
+                        <li><strong>Framework Integration:</strong> Native integration with OpenSCAP and other compliance frameworks</li>
+                        <li><strong>IaC Compliance Alignment:</strong> Review, edit, and align Infrastructure as Code with compliance frameworks</li>
+                    </ul>
+
+                    <h4>2. Commercial Support Options</h4>
+                    <p>Digital Data Forge offers commercial support alongside its open-source community support, giving you the flexibility to choose the support model that fits your organization's needs.</p>
+
+                    <h4>3. Mature Codebase</h4>
+                    <p>Built on the proven Semaphore codebase and evolved with additional enterprise features, security enhancements, and improved reliability.</p>
+
+                    <h4>4. Infrastructure Code Validator & Editor</h4>
+                    <p>Built-in validator and editor for Infrastructure as Code (Ansible, Terraform, etc.), making it easier to review, validate, and edit your automation code before execution.</p>
+
+                    <h4>5. Flexible Database Options</h4>
+                    <p>While maintaining simplicity with BoltDB for single-server deployments, also supports MySQL and PostgreSQL for larger installations requiring high availability.</p>
+
+                    <h4>6. Enterprise Secret Management</h4>
+                    <p>Native integrations with leading secret managers including Hashicorp Vault, Ansible Vault, Azure Key Vault, AWS Secrets Manager, and GCP Secret Manager for secure credential management.</p>
+
+                    <h4>7. Security-First Design</h4>
+                    <p>With built-in features like file security controls, rate limiting, security headers, and comprehensive audit logging, designed for secure enterprise deployments.</p>
+                </div>
+
+                <div class="highlight">
+                    <p><strong>Bottom Line:</strong> Both Digital Data Forge and Semaphore UI are excellent choices built on Go with similar architectures. Both offer commercial support options. Choose Digital Data Forge if you need:</p>
+                    <ul>
+                        <li>Built-in STIG Viewer for DoD compliance</li>
+                        <li>Comprehensive Compliance Dashboard with Project, Task, and User reporting</li>
+                        <li>IaC review and compliance framework alignment</li>
+                        <li>OOTB compliance templates for DoD STIGs, CIS Benchmarks, and HIPAA</li>
+                        <li>Enterprise secret manager integrations (Vault, Azure, AWS, GCP)</li>
+                    </ul>
+                    <p>Choose Semaphore UI if you prefer Semaphore Pro's specific support model and don't need advanced compliance features.</p>
+                </div>
+            </div>
+
+                <!-- Forge vs Tower/AWX -->
+                <div class="tab-pane fade" id="tower" role="tabpanel" aria-labelledby="nav-tower-tab">
+                <h2>Forge vs Ansible Tower/AWX</h2>
+                <p class="subtitle">Why Forge is better than Tower/AWX for most teams</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Forge</th>
+                            <th>Tower/AWX</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Has FOSS version</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES (AWX)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>License</strong></td>
+                            <td><span class="emoji">✅</span> MIT License</td>
+                            <td><span class="emoji">⚠️</span> Apache 2.0 (AWX) / Commercial (Tower)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ease of setup and maintenance</strong></td>
+                            <td><span class="emoji">✅</span> YES - single binary or Docker</td>
+                            <td><span class="emoji">❌</span> NO - complex Kubernetes deployment</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Efficient use of CPU and RAM</strong></td>
+                            <td><span class="emoji">✅</span> YES, written in pure Go</td>
+                            <td><span class="emoji">❌</span> NO, requires multiple containers</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can operate without Kubernetes, Docker, Java, etc</strong></td>
+                            <td><span class="emoji">✅</span> YES, single binary or Docker</td>
+                            <td><span class="emoji">❌</span> NO, requires Kubernetes/Docker</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Ansible playbooks</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Terraform/OpenTofu code</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO (Ansible only)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Bash scripts</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">⚠️</span> Limited</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support remote runners</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES (Execution nodes)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RBAC (Role-Based Access Control)</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES (more complex)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cost</strong></td>
+                            <td><span class="emoji">✅</span> FREE & Open Source</td>
+                            <td><span class="emoji">❌</span> Tower: Expensive per-node pricing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Installation time</strong></td>
+                            <td><span class="emoji">✅</span> 5 minutes</td>
+                            <td><span class="emoji">❌</span> Hours to days</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="feature-section">
+                    <h3>Why Choose Forge Over Tower/AWX?</h3>
+
+                    <h4>1. Dramatically Simpler Setup</h4>
+                    <p>Tower/AWX requires a complex Kubernetes deployment with multiple pods, persistent volumes, and external databases. Forge is a single binary that runs anywhere - download and run, or use Docker for containerized deployments. Setup takes minutes, not hours or days.</p>
+
+                    <h4>2. Lower Resource Requirements</h4>
+                    <p>AWX typically requires 4GB+ RAM and multiple CPU cores just for the control plane. Forge can run comfortably on 512MB RAM, making it perfect for edge deployments, small teams, or cost-conscious organizations.</p>
+
+                    <h4>3. No Vendor Lock-in</h4>
+                    <p>Ansible Tower is expensive (per-node licensing) and ties you to Red Hat's ecosystem. Forge is MIT licensed - use it however you want, forever, for free.</p>
+
+                    <h4>4. Multi-Tool Support</h4>
+                    <p>While Tower/AWX only runs Ansible, Forge supports Ansible, Terraform, OpenTofu, Bash scripts, and more. One tool for all your automation needs.</p>
+
+                    <h4>5. Modern Architecture</h4>
+                    <p>Forge is built with modern Go, providing excellent performance and low memory footprint. AWX uses Python and Django, which are heavier and slower.</p>
+
+                    <h4>6. Compliance Built-in</h4>
+                    <p>Forge includes native OpenSCAP and SCC compliance scanning - no additional configuration or tools needed.</p>
+                </div>
+
+                <div class="highlight">
+                    <p><strong>Perfect for:</strong> Small to medium teams, edge deployments, cost-conscious organizations, multi-tool automation needs, and anyone who values simplicity over enterprise complexity.</p>
+                </div>
+            </div>
+
+                <!-- Forge vs Rundeck -->
+                <div class="tab-pane fade" id="rundeck" role="tabpanel" aria-labelledby="nav-rundeck-tab">
+                <h2>Forge vs Rundeck</h2>
+                <p class="subtitle">Why Forge is better than Rundeck</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Forge</th>
+                            <th>Rundeck</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Has FOSS version</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ease of setup and maintenance</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Efficient use of CPU and RAM</strong></td>
+                            <td><span class="emoji">✅</span> YES, written in pure Go</td>
+                            <td><span class="emoji">❌</span> NO, written in Java</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can operate without Kubernetes, Docker, Java, etc</strong></td>
+                            <td><span class="emoji">✅</span> YES, single binary or Docker</td>
+                            <td><span class="emoji">❌</span> NO, requires Java</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Ansible playbooks</strong></td>
+                            <td><span class="emoji">✅</span> YES (native support)</td>
+                            <td><span class="emoji">⚠️</span> Via plugins</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Terraform/OpenTofu code</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">⚠️</span> Via plugins</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Bash scripts</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support remote runners</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Modern UI</strong></td>
+                            <td><span class="emoji">✅</span> YES (Vue.js)</td>
+                            <td><span class="emoji">⚠️</span> Dated interface</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Startup time</strong></td>
+                            <td><span class="emoji">✅</span> Seconds</td>
+                            <td><span class="emoji">❌</span> Minutes (JVM)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Memory footprint</strong></td>
+                            <td><span class="emoji">✅</span> ~50-200MB</td>
+                            <td><span class="emoji">❌</span> ~500MB-2GB+</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="feature-section">
+                    <h3>Why Choose Forge Over Rundeck?</h3>
+
+                    <h4>1. No Java Required</h4>
+                    <p>Rundeck requires Java Runtime Environment (JRE), which adds complexity, memory overhead, and longer startup times. Forge is a single, self-contained binary with no dependencies.</p>
+
+                    <h4>2. Native Ansible & Terraform Support</h4>
+                    <p>Forge has first-class support for Ansible playbooks and Terraform modules built-in. Rundeck requires plugins and additional configuration for proper IaC support.</p>
+
+                    <h4>3. Modern Technology Stack</h4>
+                    <p>Forge uses Go (backend) and Vue.js (frontend) for a responsive, modern experience. Rundeck's Java/Grails stack feels dated and is heavier on resources.</p>
+
+                    <h4>4. Better Performance</h4>
+                    <p>Go's compiled nature and efficient memory management means Forge starts instantly and uses far less RAM than Rundeck's JVM-based architecture.</p>
+
+                    <h4>5. Simpler Configuration</h4>
+                    <p>Rundeck's XML-based job definitions and complex plugin system can be overwhelming. Forge uses straightforward YAML/JSON configurations that are easier to version control and understand.</p>
+                </div>
+
+                <div class="highlight">
+                    <p><strong>Bottom Line:</strong> If you're tired of Java's memory bloat and complexity, Forge offers a modern, lightweight alternative with better IaC support and faster performance.</p>
+                </div>
+            </div>
+
+                <!-- Forge vs GitLab CI -->
+                <div class="tab-pane fade" id="gitlab" role="tabpanel" aria-labelledby="nav-gitlab-tab">
+                <h2>Forge vs GitLab CI</h2>
+                <p class="subtitle">Why Forge is better than GitLab CI for automation workflows</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Forge</th>
+                            <th>GitLab CI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Has FOSS version</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ease of setup and maintenance</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Efficient use of CPU and RAM</strong></td>
+                            <td><span class="emoji">✅</span> YES, written in pure Go</td>
+                            <td><span class="emoji">❌</span> NO, written in Ruby/Go hybrid</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can operate without Kubernetes, Docker, etc</strong></td>
+                            <td><span class="emoji">✅</span> YES, single binary or Docker</td>
+                            <td><span class="emoji">⚠️</span> Requires PostgreSQL, Redis, etc</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Purpose-built for automation</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO (general CI/CD)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Ansible playbooks</strong></td>
+                            <td><span class="emoji">✅</span> YES (native support)</td>
+                            <td><span class="emoji">⚠️</span> Via CI jobs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Terraform/OpenTofu code</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Inventory Management</strong></td>
+                            <td><span class="emoji">✅</span> YES (built-in)</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Credential Management</strong></td>
+                            <td><span class="emoji">✅</span> YES (vault integration)</td>
+                            <td><span class="emoji">⚠️</span> CI variables</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ad-hoc Task Execution</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Installation size</strong></td>
+                            <td><span class="emoji">✅</span> ~50MB binary</td>
+                            <td><span class="emoji">❌</span> Several GB</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="feature-section">
+                    <h3>Why Choose Forge Over GitLab CI?</h3>
+
+                    <h4>1. Purpose-Built for Operations</h4>
+                    <p>GitLab CI is designed for application CI/CD pipelines. Forge is specifically built for infrastructure automation, configuration management, and operational tasks. It includes features like inventory management, credential vaults, and ad-hoc command execution that GitLab CI doesn't offer.</p>
+
+                    <h4>2. Much Simpler Setup</h4>
+                    <p>GitLab requires PostgreSQL, Redis, Gitaly, and often several GB of dependencies. Forge is a single binary - download and run, or deploy with Docker. Perfect for teams that need automation without the overhead of a full GitLab installation.</p>
+
+                    <h4>3. Native Ansible & Terraform Support</h4>
+                    <p>While you can run Ansible/Terraform in GitLab CI jobs, it's not the same as native support. Forge understands Ansible inventories, playbooks, roles, and Terraform modules natively, providing better visibility and control.</p>
+
+                    <h4>4. No Git Repository Required</h4>
+                    <p>GitLab CI requires everything to be in Git repositories with .gitlab-ci.yml files. Forge can work with Git, but also supports local playbooks, on-the-fly execution, and other workflows.</p>
+
+                    <h4>5. Lower Resource Requirements</h4>
+                    <p>GitLab is notoriously resource-hungry, often requiring 4GB+ RAM. Forge runs comfortably in 512MB, making it suitable for smaller environments and edge deployments.</p>
+
+                    <h4>6. Better for Operations Teams</h4>
+                    <p>If you're primarily doing infrastructure automation, server configuration, and operational tasks (not application CI/CD), Forge provides a more focused and efficient solution.</p>
+                </div>
+
+                <div class="highlight">
+                    <p><strong>Use GitLab CI for:</strong> Application development pipelines, source code management, and integrated DevOps platform needs.</p>
+                    <p><strong>Use Forge for:</strong> Infrastructure automation, configuration management, Ansible/Terraform workflows, and operational task execution.</p>
+                </div>
+            </div>
+
+                <!-- Forge vs Jenkins -->
+                <div class="tab-pane fade" id="jenkins" role="tabpanel" aria-labelledby="nav-jenkins-tab">
+                <h2>Forge vs Jenkins</h2>
+                <p class="subtitle">Why Forge is better than Jenkins for automation</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Forge</th>
+                            <th>Jenkins</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Has FOSS version</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ease of setup and maintenance</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Efficient use of CPU and RAM</strong></td>
+                            <td><span class="emoji">✅</span> YES, written in pure Go</td>
+                            <td><span class="emoji">❌</span> NO, written in Java</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can operate without Kubernetes, Docker, Java, etc</strong></td>
+                            <td><span class="emoji">✅</span> YES, single binary or Docker</td>
+                            <td><span class="emoji">❌</span> NO, requires Java</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Ansible playbooks</strong></td>
+                            <td><span class="emoji">✅</span> YES (native)</td>
+                            <td><span class="emoji">⚠️</span> Via plugins</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Terraform/OpenTofu code</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">⚠️</span> Via plugins</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Bash scripts</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support remote runners</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">⚠️</span> YES (complex setup)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Modern UI</strong></td>
+                            <td><span class="emoji">✅</span> YES (Vue.js)</td>
+                            <td><span class="emoji">❌</span> NO (dated UI)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Secure by default</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO (requires hardening)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Plugin management complexity</strong></td>
+                            <td><span class="emoji">✅</span> Built-in features</td>
+                            <td><span class="emoji">❌</span> Plugin hell</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="feature-section">
+                    <h3>Why Choose Forge Over Jenkins?</h3>
+
+                    <h4>1. Escape Plugin Hell</h4>
+                    <p>Jenkins requires dozens of plugins for basic functionality, leading to version conflicts, security vulnerabilities, and maintenance nightmares. Forge has everything built-in - no plugins needed for Ansible, Terraform, or remote execution.</p>
+
+                    <h4>2. Modern, Secure Design</h4>
+                    <p>Jenkins has a long history of security issues due to its age and plugin ecosystem. Forge is built with modern security practices from the ground up, including secure defaults, rate limiting, and comprehensive audit logging.</p>
+
+                    <h4>3. No Java Required</h4>
+                    <p>Jenkins requires Java and has the typical JVM overhead (slow startup, high memory usage). Forge is a single Go binary that starts instantly and uses minimal resources.</p>
+
+                    <h4>4. Better User Experience</h4>
+                    <p>Jenkins' UI hasn't changed much in a decade and feels outdated. Forge has a modern Vue.js interface with responsive design and better usability.</p>
+
+                    <h4>5. Configuration as Code (Done Right)</h4>
+                    <p>While Jenkins added "Configuration as Code" later via plugins, Forge is built around this concept. Templates, inventories, and projects are all version-controlled YAML/JSON.</p>
+
+                    <h4>6. Purpose-Built for IaC</h4>
+                    <p>Jenkins is a general-purpose automation server that can do everything (but nothing exceptionally well). Forge is laser-focused on infrastructure automation with native support for Ansible and Terraform.</p>
+                </div>
+
+                <div class="highlight">
+                    <p><strong>Bottom Line:</strong> Jenkins is showing its age. If you're primarily doing infrastructure automation rather than application CI/CD, Forge offers a modern, lightweight, and more secure alternative without the plugin complexity.</p>
+                </div>
+            </div>
+
+                <!-- Forge vs Spacelift -->
+                <div class="tab-pane fade" id="spacelift" role="tabpanel" aria-labelledby="nav-spacelift-tab">
+                <h2>Forge vs Spacelift</h2>
+                <p class="subtitle">Why Forge is better than Spacelift</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Forge</th>
+                            <th>Spacelift</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Has FOSS version</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fully on-premises</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO (SaaS only)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ease of setup and maintenance</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">⚠️</span> Requires internet access</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Efficient use of CPU and RAM</strong></td>
+                            <td><span class="emoji">✅</span> YES, written in pure Go</td>
+                            <td><span class="emoji">🤷</span> Cloud-based</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can operate without cloud connectivity</strong></td>
+                            <td><span class="emoji">✅</span> YES, single binary or Docker</td>
+                            <td><span class="emoji">❌</span> NO (SaaS only)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Ansible playbooks</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Terraform/OpenTofu code</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">✅</span> YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can run Bash scripts</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">⚠️</span> Limited</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support remote runners</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">⚠️</span> Private workers (extra cost)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cost</strong></td>
+                            <td><span class="emoji">✅</span> FREE</td>
+                            <td><span class="emoji">❌</span> Expensive ($500+/month)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data sovereignty</strong></td>
+                            <td><span class="emoji">✅</span> Complete control</td>
+                            <td><span class="emoji">❌</span> Data in cloud</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Air-gapped environments</strong></td>
+                            <td><span class="emoji">✅</span> YES</td>
+                            <td><span class="emoji">❌</span> NO</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="feature-section">
+                    <h3>Why Choose Forge Over Spacelift?</h3>
+
+                    <h4>1. Own Your Infrastructure</h4>
+                    <p>Spacelift is SaaS-only, meaning your infrastructure state and secrets live in someone else's cloud. Forge runs on-premises, giving you complete control over your data, compliance, and security.</p>
+
+                    <h4>2. Zero Licensing Costs</h4>
+                    <p>Spacelift pricing starts at hundreds of dollars per month and scales quickly. Forge is MIT licensed and completely free, whether you're managing 10 servers or 10,000.</p>
+
+                    <h4>3. Works in Air-Gapped Environments</h4>
+                    <p>Many regulated industries (finance, defense, healthcare) require air-gapped networks. Spacelift cannot work in these environments. Forge works anywhere - no internet required.</p>
+
+                    <h4>4. Multi-Tool Support</h4>
+                    <p>Spacelift focuses solely on Terraform/Terragrunt. Forge supports Terraform, Ansible, Bash scripts, OpenTofu, and more. One tool for all your automation needs.</p>
+
+                    <h4>5. No Vendor Lock-in</h4>
+                    <p>Once you build workflows in Spacelift, you're locked in. Forge uses standard Ansible playbooks, Terraform modules, and Git repositories that work with any tool.</p>
+
+                    <h4>6. Data Sovereignty & Compliance</h4>
+                    <p>For organizations with strict data residency requirements, Spacelift's cloud-only model is a non-starter. Forge keeps everything under your control.</p>
+                </div>
+
+                <div class="highlight">
+                    <p><strong>Perfect for:</strong> Organizations requiring on-premises deployment, air-gapped environments, multi-tool automation (Ansible + Terraform), zero licensing costs, or complete data sovereignty.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
