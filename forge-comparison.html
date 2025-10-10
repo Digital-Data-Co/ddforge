@@ -52,20 +52,28 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
         }
         
-        .nav-link {
-            color: #666 !important;
-            font-weight: 500 !important;
+        .nav-tab {
+            padding: 1.25rem 2rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
-        
-        .nav-link:hover {
-            color: #2d5a8a !important;
-            background: #f9f9f9 !important;
+
+        .nav-tab:hover {
+            color: #2d5a8a;
+            background: #f9f9f9;
         }
-        
-        .nav-link.active {
-            color: #2d5a8a !important;
-            border-bottom: 3px solid #2d5a8a !important;
-            background: white !important;
+
+        .nav-tab.active {
+            color: #2d5a8a;
+            border-bottom-color: #2d5a8a;
+            background: white;
         }
 
         .content {
