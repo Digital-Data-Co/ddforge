@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Data Forge Roadmap</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+
+        .header { background: linear-gradient(135deg, #1a2332 0%, #2d5a8a 100%); color: white; padding: 2rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        .logo-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+
+        .logo-row img { width: 60px; height: 60px; }
+
+        .hero-sub { text-align: center; opacity: 0.95; }
+
+        .content { background: white; margin: 2rem auto; padding: 3rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+
+        h1 { font-size: 2.2rem; }
+        h2 { font-size: 1.6rem; color: #2d5a8a; margin: 2rem 0 0.75rem 0; }
+        h3 { font-size: 1.1rem; color: #1a2332; margin: 1rem 0 0.5rem 0; }
+        p { margin: 0.5rem 0; }
+
+        .roadmap-section { margin-bottom: 2rem; }
+        .section-meta { color: #666; font-size: 0.95rem; }
+
+        .feature-list { list-style: none; margin-top: 0.75rem; }
+        .feature-item { background: #f9fbfd; border: 1px solid #e3e9f1; border-left: 4px solid #2d5a8a; padding: 0.9rem 1rem; border-radius: 6px; margin-bottom: 0.6rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .feature-item .title { font-weight: 600; color: #1a2332; }
+        .feature-item .eta { color: #2d5a8a; font-weight: 600; white-space: nowrap; }
+        .feature-item .desc { color: #555; font-size: 0.95rem; margin-top: 0.35rem; }
+
+        .badge { background: #e8f0f7; color: #2d5a8a; border: 1px solid #c8daea; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+
+        .legend { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .legend span { font-size: 0.9rem; color: #555; }
+
+        .footer { text-align: center; color: #666; margin-top: 2rem; font-size: 0.95rem; }
+
+        @media (max-width: 768px) {
+            .content { padding: 1.5rem; }
+            .feature-item { flex-direction: column; align-items: flex-start; }
+            .feature-item .eta { margin-top: 0.35rem; }
+        }
+    </style>
+    <meta name="description" content="Digital Data Forge product roadmap: upcoming features and delivery targets by month or quarter.">
+    <meta name="robots" content="index,follow">
+    <meta property="og:title" content="Digital Data Forge Roadmap">
+    <meta property="og:description" content="Upcoming features and delivery targets by month or quarter.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://digital-data-co.github.io/ddforge/favicon.png">
+    <meta property="og:url" content="https://digital-data-co.github.io/ddforge/roadmap.html">
+</head>
+<body>
+    <header class="header">
+        <div class="container" style="text-align: left;">
+            <a href="https://digital-data-co.github.io/ddforge/" style="text-decoration: none; color: inherit; display: inline-block;">
+                <div class="logo-row">
+                    <img src="https://digital-data-co.github.io/ddforge/favicon.png" alt="Digital Data Forge Logo">
+                    <h1>Digital Data Forge</h1>
+                </div>
+            </a>
+            <p class="hero-sub">Product Roadmap</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="content">
+            <div class="legend">
+                <span class="badge">Target</span>
+                <span>Dates are goals and may shift.</span>
+            </div>
+
+            <div class="roadmap-section">
+                <h2>Q4 2025</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">Terramate Orchestration Phases 5–6</div>
+                            <div class="desc">Advanced orchestration: cross-project dependencies, approval gates, workspace drift awareness.</div>
+                        </div>
+                        <div class="eta">Q4 2025</div>
+                    </li>
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">Enhanced Terraformer UX</div>
+                            <div class="desc">Wizard-based imports, diff previews, and selective resource mapping into modules.</div>
+                        </div>
+                        <div class="eta">Nov 2025</div>
+                    </li>
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">OpenSCAP Policy Packs</div>
+                            <div class="desc">Curated, versioned packs with presets for common STIG/CIS baselines.</div>
+                        </div>
+                        <div class="eta">Dec 2025</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="roadmap-section">
+                <h2>Q1 2026</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">Compliance Dashboard: Custom KPIs</div>
+                            <div class="desc">Create organization-specific KPIs with thresholds, alerts, and trend charts.</div>
+                        </div>
+                        <div class="eta">Q1 2026</div>
+                    </li>
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">Packer Pipelines with QEMU Matrix</div>
+                            <div class="desc">Matrix builds across OS versions; artifact signing and provenance metadata.</div>
+                        </div>
+                        <div class="eta">Feb 2026</div>
+                    </li>
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">Secrets: Just-In-Time Credentials</div>
+                            <div class="desc">Ephemeral credentials via cloud providers and Vault dynamic secrets.</div>
+                        </div>
+                        <div class="eta">Mar 2026</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="roadmap-section">
+                <h2>Q2 2026</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">STIG Evidence Automation</div>
+                            <div class="desc">Auto-generate evidence bundles with screenshots, logs, and remediation artifacts.</div>
+                        </div>
+                        <div class="eta">Q2 2026</div>
+                    </li>
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">Drift Detection for Ansible Inventories</div>
+                            <div class="desc">Detect and reconcile inventory differences across environments over time.</div>
+                        </div>
+                        <div class="eta">May 2026</div>
+                    </li>
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">Self-Hosted Runner Pools</div>
+                            <div class="desc">Elastic pools with quotas, labels, and per-project isolation for compliance.</div>
+                        </div>
+                        <div class="eta">Jun 2026</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="roadmap-section">
+                <h2>Backlog</h2>
+                <p class="section-meta">Candidate items under evaluation and user feedback.</p>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">GitOps Environments</div>
+                            <div class="desc">Declarative environments synced from Git with policy checks and approvals.</div>
+                        </div>
+                        <div class="eta">TBD</div>
+                    </li>
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">Policy-as-Code Gatekeeper</div>
+                            <div class="desc">Org-wide policies for IaC scans, approvals, and execution guardrails.</div>
+                        </div>
+                        <div class="eta">TBD</div>
+                    </li>
+                    <li class="feature-item">
+                        <div>
+                            <div class="title">Cluster-Orchestrated Runs</div>
+                            <div class="desc">Kubernetes-based orchestration for large-scale, parallel automation workflows.</div>
+                        </div>
+                        <div class="eta">TBD</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer">
+                Questions or feedback? <a href="https://digitaldata.co" style="color:#2d5a8a; text-decoration:none; font-weight:600;">Contact us</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
+
