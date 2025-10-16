@@ -1448,6 +1448,11 @@
     </div>
 
     <script>
+        // Prevent automatic scroll on history navigation and ensure we stay at top
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
         function showComparison(comparisonId) {
             // Hide all comparisons
             const comparisons = document.querySelectorAll('.tab-pane');
@@ -1470,31 +1475,48 @@
             // Activate clicked tab
             event.target.classList.add('active');
 
-            // Update URL hash
-            window.location.hash = comparisonId;
+            // Update URL query param without hash to avoid auto-scroll
+            const url = new URL(window.location.href);
+            url.hash = '';
+            url.searchParams.set('tab', comparisonId);
+            history.replaceState(null, '', url);
         }
 
         // Show correct tab on page load based on URL hash
         window.addEventListener('DOMContentLoaded', function() {
+            // Always ensure we start at the top
+            window.scrollTo(0, 0);
+
+            const params = new URLSearchParams(window.location.search);
+            const tabParam = params.get('tab');
             const hash = window.location.hash.substring(1);
-            if (hash) {
-                const comparison = document.getElementById(hash);
-                if (comparison) {
-                    // Hide all comparisons
-                    document.querySelectorAll('.tab-pane').forEach(c => {
-                        c.classList.remove('show', 'active');
-                    });
-                    // Remove active from all tabs
-                    document.querySelectorAll('.nav-tab').forEach(t => {
-                        t.classList.remove('active');
-                    });
-                    // Show the target comparison
-                    comparison.classList.add('show', 'active');
-                    // Activate the correct tab button
-                    const tabButton = document.querySelector(`button[onclick="showComparison('${hash}')"]`);
-                    if (tabButton) {
-                        tabButton.classList.add('active');
-                    }
+
+            let target = tabParam || hash || 'semaphore';
+
+            const comparison = document.getElementById(target);
+            if (comparison) {
+                // Hide all comparisons
+                document.querySelectorAll('.tab-pane').forEach(c => {
+                    c.classList.remove('show', 'active');
+                });
+                // Remove active from all tabs
+                document.querySelectorAll('.nav-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                // Show the target comparison
+                comparison.classList.add('show', 'active');
+                // Activate the correct tab button
+                const tabButton = document.querySelector(`button[onclick="showComparison('${target}')"]`);
+                if (tabButton) {
+                    tabButton.classList.add('active');
+                }
+                // If we arrived via hash, convert it to ?tab= to prevent scroll on refresh
+                if (hash && !tabParam) {
+                    const url = new URL(window.location.href);
+                    url.hash = '';
+                    url.searchParams.set('tab', hash);
+                    history.replaceState(null, '', url);
+                    window.scrollTo(0, 0);
                 }
             }
         });
