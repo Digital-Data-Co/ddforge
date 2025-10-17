@@ -333,6 +333,10 @@
                 <option value="pt">PT</option>
                 <option value="zh">中文</option>
                 <option value="ja">日本語</option>
+                <option value="it">IT</option>
+                <option value="ru">RU</option>
+                <option value="ko">KO</option>
+                <option value="ar">AR</option>
             </select>
             <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
         </div>
@@ -444,17 +448,17 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🏛️</div>
-                    <h3>ATO Ready</h3>
+                    <h3 data-i18n="feat_ato_ready">ATO Ready</h3>
                     <p>Designed for ATO processes: STIG/SRG baselines, evidence exports, audit trails, RBAC, and data sovereignty.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📚</div>
-                    <h3>STIG/SRG Catalog</h3>
+                    <h3 data-i18n="feat_stig_catalog">STIG/SRG Catalog</h3>
                     <p>Supports common DoD baselines via SCAP/SCC, including RHEL/Rocky/Alma 8–9, Ubuntu 20.04/22.04, Windows Server 2019/2022, Windows 10/11, and more.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🧾</div>
-                    <h3>Audit & Evidence</h3>
+                    <h3 data-i18n="feat_audit_evidence">Audit & Evidence</h3>
                     <p>Generate PDF/CSV/ARF reports, STIG screenshot ZIPs, and maintain comprehensive audit logs for A&A packages.</p>
                 </div>
             </div>
@@ -463,8 +467,8 @@
 
     <section class="section" style="background: white;">
         <div class="container">
-            <h2 class="section-title">ATO Ready: STIG/SRG Baselines</h2>
-            <p class="section-subtitle">Forge aligns with widely-used baselines through OpenSCAP and DoD SCC integrations. Coverage varies by OS/version.</p>
+            <h2 class="section-title" data-i18n="ato_title">ATO Ready: STIG/SRG Baselines</h2>
+            <p class="section-subtitle" data-i18n="ato_subtitle">Forge aligns with widely-used baselines through OpenSCAP and DoD SCC integrations. Coverage varies by OS/version.</p>
 
             <div class="features-grid" style="margin-top: 2rem;">
                 <div class="feature-card">
@@ -495,7 +499,7 @@
 
     <section class="section stats-section">
         <div class="container">
-            <h2 class="section-title" style="color: white;">By The Numbers</h2>
+            <h2 class="section-title" style="color: white;" data-i18n="numbers_title">By The Numbers</h2>
             <div class="stats-grid">
                 <div class="stat-item">
                     <h4>~50MB</h4>
@@ -635,6 +639,12 @@
                 compare_title: 'See How Forge Compares',
                 compare_subtitle: 'Discover why teams are switching from complex enterprise tools to Forge',
                 ready_title: 'Ready to Get Started?',
+                numbers_title: 'By The Numbers',
+                ato_title: 'ATO Ready: STIG/SRG Baselines',
+                ato_subtitle: 'Forge aligns with widely-used baselines through OpenSCAP and DoD SCC integrations. Coverage varies by OS/version.',
+                feat_ato_ready: 'ATO Ready',
+                feat_stig_catalog: 'STIG/SRG Catalog',
+                feat_audit_evidence: 'Audit & Evidence',
                 footer_tag: 'Automation & Compliance Platform',
                 footer_meta: 'MIT Licensed | Commercial Support Available'
             },
@@ -649,6 +659,12 @@
                 compare_title: 'Mira cómo se compara Forge',
                 compare_subtitle: 'Descubre por qué los equipos cambian a Forge',
                 ready_title: '¿Listo para comenzar?',
+                numbers_title: 'Por Números',
+                ato_title: 'Listo para ATO: STIG/SRG',
+                ato_subtitle: 'Forge se alinea con bases comunes vía OpenSCAP y DoD SCC. La cobertura varía por SO/versión.',
+                feat_ato_ready: 'Listo para ATO',
+                feat_stig_catalog: 'Catálogo STIG/SRG',
+                feat_audit_evidence: 'Auditoría y Evidencia',
                 footer_tag: 'Plataforma de Automatización y Cumplimiento',
                 footer_meta: 'Licencia MIT | Soporte comercial disponible'
             },
@@ -663,6 +679,12 @@
                 compare_title: 'Voyez comment Forge se compare',
                 compare_subtitle: 'Découvrez pourquoi les équipes passent à Forge',
                 ready_title: 'Prêt à commencer ?',
+                numbers_title: 'Quelques chiffres',
+                ato_title: 'Prêt ATO : STIG/SRG',
+                ato_subtitle: 'Forge s’aligne sur les référentiels via OpenSCAP et DoD SCC. La couverture varie selon l’OS/la version.',
+                feat_ato_ready: 'Prêt pour l’ATO',
+                feat_stig_catalog: 'Catalogue STIG/SRG',
+                feat_audit_evidence: 'Audit & Preuves',
                 footer_tag: 'Plateforme d’Automatisation et de Conformité',
                 footer_meta: 'Licence MIT | Support commercial disponible'
             },
@@ -677,6 +699,12 @@
                 compare_title: 'So schneidet Forge ab',
                 compare_subtitle: 'Warum Teams von komplexen Tools zu Forge wechseln',
                 ready_title: 'Bereit loszulegen?',
+                numbers_title: 'Zahlen & Fakten',
+                ato_title: 'ATO-Ready: STIG/SRG',
+                ato_subtitle: 'Forge richtet sich nach gängigen Basislinien über OpenSCAP und DoD SCC. Abdeckung je OS/Version.',
+                feat_ato_ready: 'ATO-Ready',
+                feat_stig_catalog: 'STIG/SRG-Katalog',
+                feat_audit_evidence: 'Audit & Nachweise',
                 footer_tag: 'Plattform für Automatisierung und Compliance',
                 footer_meta: 'MIT-Lizenz | Kommerzieller Support verfügbar'
             },
@@ -691,6 +719,12 @@
                 compare_title: 'Veja como o Forge se compara',
                 compare_subtitle: 'Descubra por que as equipes estão migrando para o Forge',
                 ready_title: 'Pronto para começar?',
+                numbers_title: 'Em Números',
+                ato_title: 'Pronto para ATO: STIG/SRG',
+                ato_subtitle: 'O Forge alinha-se a bases por meio do OpenSCAP e DoD SCC. A cobertura varia por SO/versão.',
+                feat_ato_ready: 'Pronto para ATO',
+                feat_stig_catalog: 'Catálogo STIG/SRG',
+                feat_audit_evidence: 'Auditoria e Evidências',
                 footer_tag: 'Plataforma de Automação e Conformidade',
                 footer_meta: 'Licença MIT | Suporte comercial disponível'
             },
@@ -705,6 +739,12 @@
                 compare_title: 'Forge 对比',
                 compare_subtitle: '了解团队为何迁移到 Forge',
                 ready_title: '准备开始？',
+                numbers_title: '关键数据',
+                ato_title: 'ATO 就绪：STIG/SRG 基线',
+                ato_subtitle: 'Forge 通过 OpenSCAP 与 DoD SCC 对齐常用基线。覆盖范围依操作系统/版本而定。',
+                feat_ato_ready: 'ATO 就绪',
+                feat_stig_catalog: 'STIG/SRG 目录',
+                feat_audit_evidence: '审计与证据',
                 footer_tag: '自动化与合规平台',
                 footer_meta: 'MIT 许可 | 提供商业支持'
             },
@@ -719,8 +759,94 @@
                 compare_title: 'Forge の比較',
                 compare_subtitle: 'なぜチームが Forge に乗り換えるのか',
                 ready_title: '今すぐはじめませんか？',
+                numbers_title: '数値で見る',
+                ato_title: 'ATO 対応: STIG/SRG ベースライン',
+                ato_subtitle: 'OpenSCAP と DoD SCC を通じ一般的なベースラインに準拠。対象は OS/バージョンにより異なります。',
+                feat_ato_ready: 'ATO 対応',
+                feat_stig_catalog: 'STIG/SRG カタログ',
+                feat_audit_evidence: '監査とエビデンス',
                 footer_tag: '自動化とコンプライアンスのプラットフォーム',
                 footer_meta: 'MIT ライセンス | 商用サポートあり'
+            },
+            it: {
+                brand: 'Digital Data Forge',
+                hero_tagline: 'Piattaforma di Automazione e Conformità',
+                hero_features: 'Ansible • Terraform • OpenTofu • PowerShell • Dashboard di Conformità • STIG Viewer',
+                cta_get_started: 'Inizia',
+                cta_see_comparisons: 'Vedi Confronti',
+                why_title: 'Perché scegliere Digital Data Forge?',
+                why_subtitle: 'L’alternativa moderna e leggera agli strumenti enterprise complessi',
+                compare_title: 'Confronta Forge',
+                compare_subtitle: 'Scopri perché i team passano a Forge',
+                ready_title: 'Pronto per iniziare?',
+                numbers_title: 'In Numeri',
+                ato_title: 'Pronto per ATO: STIG/SRG',
+                ato_subtitle: 'Forge si allinea ai baseline comuni tramite OpenSCAP e DoD SCC. Copertura variabile per OS/versione.',
+                feat_ato_ready: 'Pronto per ATO',
+                feat_stig_catalog: 'Catalogo STIG/SRG',
+                feat_audit_evidence: 'Audit & Evidenze',
+                footer_tag: 'Piattaforma di Automazione e Conformità',
+                footer_meta: 'Licenza MIT | Supporto commerciale disponibile'
+            },
+            ru: {
+                brand: 'Digital Data Forge',
+                hero_tagline: 'Платформа автоматизации и соответствия',
+                hero_features: 'Ansible • Terraform • OpenTofu • PowerShell • Панель соответствия • STIG Viewer',
+                cta_get_started: 'Начать',
+                cta_see_comparisons: 'Сравнения',
+                why_title: 'Почему Digital Data Forge?',
+                why_subtitle: 'Современная и легкая альтернатива сложным корпоративным инструментам',
+                compare_title: 'Сравнение Forge',
+                compare_subtitle: 'Почему команды переходят на Forge',
+                ready_title: 'Готовы начать?',
+                numbers_title: 'В цифрах',
+                ato_title: 'Готовность к ATO: STIG/SRG',
+                ato_subtitle: 'Forge соответствует распространённым базовым наборам через OpenSCAP и DoD SCC. Покрытие зависит от ОС/версии.',
+                feat_ato_ready: 'Готов к ATO',
+                feat_stig_catalog: 'Каталог STIG/SRG',
+                feat_audit_evidence: 'Аудит и доказательства',
+                footer_tag: 'Платформа автоматизации и соответствия',
+                footer_meta: 'Лицензия MIT | Доступна коммерческая поддержка'
+            },
+            ko: {
+                brand: 'Digital Data Forge',
+                hero_tagline: '인프라 자동화 및 컴플라이언스 플랫폼',
+                hero_features: 'Ansible • Terraform • OpenTofu • PowerShell • 컴플라이언스 대시보드 • STIG 뷰어',
+                cta_get_started: '시작하기',
+                cta_see_comparisons: '비교 보기',
+                why_title: '왜 Digital Data Forge 인가요?',
+                why_subtitle: '복잡한 엔터프라이즈 도구의 현대적이고 가벼운 대안',
+                compare_title: 'Forge 비교',
+                compare_subtitle: '팀이 Forge 로 전환하는 이유',
+                ready_title: '시작할 준비가 되셨나요?',
+                numbers_title: '숫자로 보기',
+                ato_title: 'ATO 준비: STIG/SRG 기준',
+                ato_subtitle: 'OpenSCAP 및 DoD SCC를 통해 일반 기준에 맞춤. OS/버전에 따라 다릅니다.',
+                feat_ato_ready: 'ATO 준비',
+                feat_stig_catalog: 'STIG/SRG 카탈로그',
+                feat_audit_evidence: '감사 및 증적',
+                footer_tag: '자동화 및 컴플라이언스 플랫폼',
+                footer_meta: 'MIT 라이선스 | 상용 지원 제공'
+            },
+            ar: {
+                brand: 'Digital Data Forge',
+                hero_tagline: 'منصة أتمتة والبُنية التحتية والامتثال',
+                hero_features: 'Ansible • Terraform • OpenTofu • PowerShell • لوحة الامتثال • STIG Viewer',
+                cta_get_started: 'ابدأ الآن',
+                cta_see_comparisons: 'شاهد المقارنات',
+                why_title: 'لماذا تختار Digital Data Forge؟',
+                why_subtitle: 'البديل الحديث والخفيف لأدوات المؤسسات المعقدة',
+                compare_title: 'كيف يقارن Forge',
+                compare_subtitle: 'اكتشف لماذا تنتقل الفرق إلى Forge',
+                ready_title: 'هل أنت مستعد للبدء؟',
+                numbers_title: 'بالأرقام',
+                ato_title: 'جاهزية ATO: خطوط أساس STIG/SRG',
+                ato_subtitle: 'يتوافق Forge مع خطوط الأساس عبر OpenSCAP و DoD SCC. التغطية تعتمد على نظام التشغيل/الإصدار.',
+                feat_ato_ready: 'جاهز لـ ATO',
+                feat_stig_catalog: 'كتالوج STIG/SRG',
+                feat_audit_evidence: 'التدقيق والأدلة',
+                footer_tag: 'منصة الأتمتة والامتثال',
+                footer_meta: 'ترخيص MIT | دعم تجاري متاح'
             }
         };
 
