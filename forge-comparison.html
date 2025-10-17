@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Data Forge Comparisons - vs Semaphore UI, AWX, Rundeck, GitLab, Jenkins, Spacelift, ConfigOS</title>
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAE1CAYAAADZB20hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAQAElEQVR4Aex9B4BlRZX2d+69+d5743v+p76+/MrSCiJ4S5XaU8l+hYCArC4AC+yyy7IsruxSlsXlRVCWlUUBF1xWEJFFEJBFZBEBQRAQRJBFcs6dc/r07nPvvfe+N85kJmEm4em6v/n3P//++55/d/pO996+dc4995Qse//Xv/93yv+c9p/C2v9fc77y1Ze//Y9X33jDOYv2H/qr/w3xhR38UPPcl73yY+efP/t9//irX/Tc8fM7/u3SSy8948JvfPOZP/3pT6e+/OV/e+WcOXPmCfr/NObA/+wDvH/v3lXnnfv1B04951W3f+2rXxq8/fbbJ19++eXP/NrXrpv89X+/5sR/uOD8Tx177DH3Y+Z/UZo2gSd87WvfuPDcc8+97Xe/u+vpM2fO3PXE4x84cslS66STTtr5xCce2PPud7/rKaeecdpPX/e61z5Mm8CzPJRm/uceYNroH/7h/O99+9vfOvW6/7r27VdecfnSa6+59ujHPv7xH5t+yinffdWrX/XNKdPf/i033HDDA6+d/tc3RsjTIuQviCd97Wtf/8a55371vpnZf522dOneqy7/yrJ/+ugnf3XCCSdcwRr+Cqjpp86fNu3tN9988+OPf+UTv/b4x/3qwbR9qCn/sx7goz/5X5fOOuvMr/7+jt8/45STT1nw3e9+58SHP/IRP/zrV7/q2uO4u551zT9f9W2T39N+8YtfPPkI47DZ/7M94P8L0RuP/+f//Z2TTz7xmwsXLlx15S+v/PSnz/rIh6h+8pnPeOa1l11+2akvuOC8r7DnF/EXiP+h39dGZ54T/z+FuY/9d/3+f+yB/wdlIw9I1Iug7wAAAABJRU5ErkJggg==">
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         * {
             margin: 0;
@@ -211,6 +211,15 @@
             background: #2d5a8a !important;
             border-radius: 4px !important;
         }
+        /* Dark mode adjustments for nav tabs */
+        body.dark #nav-tab {
+            background: #0f172a !important;
+            border-bottom: 2px solid #1f2937 !important;
+            box-shadow: none !important;
+        }
+        body.dark .nav-tab { color: #cbd5e1; }
+        body.dark .nav-tab:hover { color: #93c5fd; background: #0c1220; }
+        body.dark .nav-tab.active { color: #93c5fd; border-bottom: 3px solid #93c5fd; background: #0b1220; }
         /* Dark theme overrides */
         body.dark { background: #0b1220; color: #e5e7eb; }
         body.dark .header { background: linear-gradient(135deg, #0b1220 0%, #223a59 100%); }
@@ -224,7 +233,7 @@
     </style>
 </head>
 <body>
-    <header class="header" style="background: linear-gradient(135deg, #1a2332 0%, #2d5a8a 100%) !important; color: white !important; padding: 2rem 0 !important; box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important; position: relative;">
+    <header class="header" style="color: white !important; padding: 2rem 0 !important; box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important; position: relative;">
         <div class="container" style="text-align: left;">
             <div style="position:absolute; top: 1rem; right: 1rem; display:flex; gap: 0.5rem; align-items:center;">
                 <select id="lang" style="appearance:none; background: rgba(255,255,255,0.9); color:#1a2332; border:1px solid rgba(255,255,255,0.6); border-radius:6px; padding:0.3rem 0.5rem; font-weight:600;">
