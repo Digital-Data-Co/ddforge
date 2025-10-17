@@ -25,6 +25,7 @@
             color: white;
             padding: 6rem 0; /* increased from 4rem */
             text-align: center;
+            position: relative;
         }
 
         .hero-content {
@@ -32,6 +33,51 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
+
+        /* Header controls (language + theme) */
+        .header-controls {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lang-select {
+            appearance: none;
+            background: rgba(255,255,255,0.9);
+            color: #1a2332;
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 6px;
+            padding: 0.4rem 0.6rem;
+            font-weight: 600;
+        }
+
+        .theme-toggle {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* Dark theme overrides */
+        body.dark { background: #0b1220; color: #e5e7eb; }
+        body.dark .hero { background: linear-gradient(135deg, #0b1220 0%, #223a59 100%); }
+        body.dark .features-grid .feature-card { background: #111827; color: #e5e7eb; box-shadow: none; border: 1px solid #1f2937; }
+        body.dark .comparison-grid .comparison-card { background: linear-gradient(135deg, #0f172a 0%, #0b1220 100%); border-color: #1f2a44; color: #e5e7eb; }
+        body.dark .section-title { color: #e5e7eb; }
+        body.dark .section-subtitle { color: #a3b1c6; }
+        body.dark .btn-secondary { background: #0f172a; color: #cbd5e1; border: 1px solid #1f2a44; }
+        body.dark .btn-secondary:hover { background: #111827; }
+        body.dark .stats-section { background: linear-gradient(135deg, #0f2a44 0%, #0b1220 100%); }
+        body.dark .footer { background: #0b1220; }
 
         .logo-container {
             display: flex;
@@ -278,27 +324,39 @@
 </head>
 <body>
     <header class="hero">
+        <div class="header-controls">
+            <select id="lang" class="lang-select" aria-label="Language">
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+                <option value="fr">FR</option>
+                <option value="de">DE</option>
+                <option value="pt">PT</option>
+                <option value="zh">中文</option>
+                <option value="ja">日本語</option>
+            </select>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        </div>
         <div class="hero-content" style="text-align: left;">
             <a href="https://digital-data-co.github.io/ddforge/" style="text-decoration: none; color: inherit;">
                 <div class="logo-container" style="justify-content: flex-start;">
                     <img src="logo.png" alt="Digital Data Forge Logo" onerror="this.onerror=null;this.src='https://digital-data-co.github.io/ddforge/favicon.png'">
-                    <h1>Digital Data Forge</h1>
+                    <h1 data-i18n="brand">Digital Data Forge</h1>
                 </div>
             </a>
-            <p class="tagline" style="text-align: center;">Infrastructure Automation & Compliance Platform</p>
-            <p class="features-list" style="text-align: center;">Ansible • Terraform • OpenTofu • PowerShell • Compliance Dashboard • STIG Viewer</p>
+            <p class="tagline" style="text-align: center;" data-i18n="hero_tagline">Infrastructure Automation & Compliance Platform</p>
+            <p class="features-list" style="text-align: center;" data-i18n="hero_features">Ansible • Terraform • OpenTofu • PowerShell • Compliance Dashboard • STIG Viewer</p>
             
             <div class="cta-buttons">
-                <a href="https://digitaldata.co" class="btn btn-primary">Get Started</a>
-                <a href="#comparisons" class="btn btn-secondary">See Comparisons</a>
+                <a href="https://digitaldata.co" class="btn btn-primary" data-i18n="cta_get_started">Get Started</a>
+                <a href="#comparisons" class="btn btn-secondary" data-i18n="cta_see_comparisons">See Comparisons</a>
             </div>
         </div>
     </header>
 
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Why Choose Digital Data Forge?</h2>
-            <p class="section-subtitle">The modern, lightweight alternative to complex enterprise automation tools</p>
+            <h2 class="section-title" data-i18n="why_title">Why Choose Digital Data Forge?</h2>
+            <p class="section-subtitle" data-i18n="why_subtitle">The modern, lightweight alternative to complex enterprise automation tools</p>
 
             <div class="features-grid">
                 <div class="feature-card">
@@ -457,8 +515,8 @@
 
     <section id="comparisons" class="section comparisons-section">
         <div class="container">
-            <h2 class="section-title">See How Forge Compares</h2>
-            <p class="section-subtitle">Discover why teams are switching from complex enterprise tools to Forge</p>
+            <h2 class="section-title" data-i18n="compare_title">See How Forge Compares</h2>
+            <p class="section-subtitle" data-i18n="compare_subtitle">Discover why teams are switching from complex enterprise tools to Forge</p>
 
             <div class="comparison-grid">
                 <a href="forge-comparison.html?tab=semaphore" class="comparison-card">
@@ -522,22 +580,170 @@
 
     <section class="section" style="background: #f8f9fa;">
         <div class="container" style="text-align: center;">
-            <h2 class="section-title">Ready to Get Started?</h2>
+            <h2 class="section-title" data-i18n="ready_title">Ready to Get Started?</h2>
             
             <div class="cta-buttons">
-                <a href="https://digitaldata.co" class="btn btn-primary btn-lg">Get Started</a>
+                <a href="https://digitaldata.co" class="btn btn-primary btn-lg" data-i18n="cta_get_started">Get Started</a>
             </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Digital Data Forge - Automation & Compliance Platform</p>
+            <p>&copy; 2025 <span data-i18n="brand">Digital Data Forge</span> - <span data-i18n="footer_tag">Automation & Compliance Platform</span></p>
             <p style="margin-top: 0.5rem;">
-                MIT Licensed | Commercial Support Available
+                <span data-i18n="footer_meta">MIT Licensed | Commercial Support Available</span>
             </p>
         </div>
     </footer>
+
+    <script>
+        // Persisted preferences
+        (function initPreferences(){
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+            }
+            const savedLang = localStorage.getItem('lang') || 'en';
+            const langSelect = document.getElementById('lang');
+            if (langSelect) langSelect.value = savedLang;
+        })();
+
+        // Theme toggle
+        const themeBtn = document.getElementById('themeToggle');
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                const isDark = document.body.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                themeBtn.textContent = isDark ? '☀️' : '🌙';
+            });
+            // Set initial icon
+            themeBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        }
+
+        // Translations (minimal demo for key strings)
+        const i18n = {
+            en: {
+                brand: 'Digital Data Forge',
+                hero_tagline: 'Infrastructure Automation & Compliance Platform',
+                hero_features: 'Ansible • Terraform • OpenTofu • PowerShell • Compliance Dashboard • STIG Viewer',
+                cta_get_started: 'Get Started',
+                cta_see_comparisons: 'See Comparisons',
+                why_title: 'Why Choose Digital Data Forge?',
+                why_subtitle: 'The modern, lightweight alternative to complex enterprise automation tools',
+                compare_title: 'See How Forge Compares',
+                compare_subtitle: 'Discover why teams are switching from complex enterprise tools to Forge',
+                ready_title: 'Ready to Get Started?',
+                footer_tag: 'Automation & Compliance Platform',
+                footer_meta: 'MIT Licensed | Commercial Support Available'
+            },
+            es: {
+                brand: 'Digital Data Forge',
+                hero_tagline: 'Plataforma de Automatización e Cumplimiento',
+                hero_features: 'Ansible • Terraform • OpenTofu • PowerShell • Panel de Cumplimiento • Visor STIG',
+                cta_get_started: 'Comenzar',
+                cta_see_comparisons: 'Ver Comparaciones',
+                why_title: '¿Por qué elegir Digital Data Forge?',
+                why_subtitle: 'La alternativa moderna y ligera a herramientas empresariales complejas',
+                compare_title: 'Mira cómo se compara Forge',
+                compare_subtitle: 'Descubre por qué los equipos cambian a Forge',
+                ready_title: '¿Listo para comenzar?',
+                footer_tag: 'Plataforma de Automatización y Cumplimiento',
+                footer_meta: 'Licencia MIT | Soporte comercial disponible'
+            },
+            fr: {
+                brand: 'Digital Data Forge',
+                hero_tagline: 'Plateforme d’Automatisation et de Conformité',
+                hero_features: 'Ansible • Terraform • OpenTofu • PowerShell • Tableau de Conformité • STIG Viewer',
+                cta_get_started: 'Commencer',
+                cta_see_comparisons: 'Voir les Comparaisons',
+                why_title: 'Pourquoi choisir Digital Data Forge ?',
+                why_subtitle: 'L’alternative moderne et légère aux outils d’entreprise complexes',
+                compare_title: 'Voyez comment Forge se compare',
+                compare_subtitle: 'Découvrez pourquoi les équipes passent à Forge',
+                ready_title: 'Prêt à commencer ?',
+                footer_tag: 'Plateforme d’Automatisation et de Conformité',
+                footer_meta: 'Licence MIT | Support commercial disponible'
+            },
+            de: {
+                brand: 'Digital Data Forge',
+                hero_tagline: 'Plattform für Automatisierung und Compliance',
+                hero_features: 'Ansible • Terraform • OpenTofu • PowerShell • Compliance-Dashboard • STIG-Viewer',
+                cta_get_started: 'Loslegen',
+                cta_see_comparisons: 'Vergleiche ansehen',
+                why_title: 'Warum Digital Data Forge?',
+                why_subtitle: 'Die moderne, schlanke Alternative zu komplexen Enterprise-Tools',
+                compare_title: 'So schneidet Forge ab',
+                compare_subtitle: 'Warum Teams von komplexen Tools zu Forge wechseln',
+                ready_title: 'Bereit loszulegen?',
+                footer_tag: 'Plattform für Automatisierung und Compliance',
+                footer_meta: 'MIT-Lizenz | Kommerzieller Support verfügbar'
+            },
+            pt: {
+                brand: 'Digital Data Forge',
+                hero_tagline: 'Plataforma de Automação e Conformidade',
+                hero_features: 'Ansible • Terraform • OpenTofu • PowerShell • Painel de Conformidade • STIG Viewer',
+                cta_get_started: 'Começar',
+                cta_see_comparisons: 'Ver Comparações',
+                why_title: 'Por que escolher Digital Data Forge?',
+                why_subtitle: 'A alternativa moderna e leve às ferramentas empresariais complexas',
+                compare_title: 'Veja como o Forge se compara',
+                compare_subtitle: 'Descubra por que as equipes estão migrando para o Forge',
+                ready_title: 'Pronto para começar?',
+                footer_tag: 'Plataforma de Automação e Conformidade',
+                footer_meta: 'Licença MIT | Suporte comercial disponível'
+            },
+            zh: {
+                brand: 'Digital Data Forge',
+                hero_tagline: '基础设施自动化与合规平台',
+                hero_features: 'Ansible • Terraform • OpenTofu • PowerShell • 合规看板 • STIG 查看器',
+                cta_get_started: '开始使用',
+                cta_see_comparisons: '查看对比',
+                why_title: '为何选择 Digital Data Forge？',
+                why_subtitle: '面向企业复杂工具的现代轻量替代方案',
+                compare_title: 'Forge 对比',
+                compare_subtitle: '了解团队为何迁移到 Forge',
+                ready_title: '准备开始？',
+                footer_tag: '自动化与合规平台',
+                footer_meta: 'MIT 许可 | 提供商业支持'
+            },
+            ja: {
+                brand: 'Digital Data Forge',
+                hero_tagline: 'インフラ自動化とコンプライアンスのプラットフォーム',
+                hero_features: 'Ansible • Terraform • OpenTofu • PowerShell • コンプライアンスダッシュボード • STIG ビューア',
+                cta_get_started: 'はじめる',
+                cta_see_comparisons: '比較を見る',
+                why_title: 'Digital Data Forge を選ぶ理由',
+                why_subtitle: '複雑なエンタープライズツールに対するモダンで軽量な代替',
+                compare_title: 'Forge の比較',
+                compare_subtitle: 'なぜチームが Forge に乗り換えるのか',
+                ready_title: '今すぐはじめませんか？',
+                footer_tag: '自動化とコンプライアンスのプラットフォーム',
+                footer_meta: 'MIT ライセンス | 商用サポートあり'
+            }
+        };
+
+        function applyTranslations(lang) {
+            const dict = i18n[lang] || i18n.en;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.textContent = dict[key];
+            });
+        }
+
+        // Initialize language
+        const langSelect = document.getElementById('lang');
+        const initialLang = localStorage.getItem('lang') || (navigator.language || 'en').slice(0,2);
+        applyTranslations(i18n[initialLang] ? initialLang : 'en');
+        if (langSelect) {
+            langSelect.addEventListener('change', (e) => {
+                const lang = e.target.value;
+                localStorage.setItem('lang', lang);
+                applyTranslations(lang);
+            });
+        }
+    </script>
 </body>
 </html>
 
