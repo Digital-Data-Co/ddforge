@@ -50,6 +50,40 @@
             z-index: 1;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-container a:hover {
+            opacity: 0.85;
+        }
+
+        .logo-container img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .logo-container .site-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+        }
+
         .badge {
             display: inline-block;
             background: #4CAF50;
@@ -485,6 +519,12 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
+            <div class="logo-container">
+                <a href="index.html" title="Back to Digital Data Forge Home">
+                    <img src="favicon.png" alt="Digital Data Forge Logo">
+                    <span class="site-name">Digital Data Forge</span>
+                </a>
+            </div>
             <div class="badge">✓ DoD PRODUCTION READY</div>
             <h1>Forge: Ready for <span class="highlight">DoD Thunderdome</span></h1>
             <p class="subtitle">100% STIG Compliant • FIPS 140-2 Certified • 10+ IaC Tools • Air-Gap Capable • Purpose-Built for DoD High-Security Environments</p>
