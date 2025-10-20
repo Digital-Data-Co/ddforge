@@ -44,6 +44,27 @@
             gap: 0.5rem;
         }
 
+        /* Top navigation menu */
+        .top-menu {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .top-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+        .top-menu a:hover { background: rgba(255,255,255,0.2); }
+
         .lang-select {
             appearance: none;
             background: rgba(255,255,255,0.9);
@@ -227,6 +248,16 @@
             margin-top: 3rem;
         }
 
+        /* Centered row for highlighted comparisons */
+        .comparison-center-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .comparison-center-row .comparison-card { max-width: 460px; }
+
         .comparison-card {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 2rem;
@@ -331,6 +362,12 @@
 </head>
 <body>
     <header class="hero">
+        <nav class="top-menu" aria-label="Primary">
+            <a href="/ddforge/index.html">Home</a>
+            <a href="/ddforge/forge-comparison.html">Comparisons</a>
+            <a href="/ddforge/roadmap.html">Roadmap</a>
+            <a href="/ddforge/thunderdome.html">Thunderdome</a>
+        </nav>
         <div class="header-controls">
             <select id="lang" class="lang-select" aria-label="Language">
                 <option value="en">EN</option>
@@ -583,7 +620,10 @@
                     <p>Own your infrastructure. Works air-gapped, multi-tool support, complete data sovereignty.</p>
                     <span class="learn-more">Compare Features →</span>
                 </a>
+            </div>
 
+            <!-- Focused comparisons row: centered STEELCloud + Thunderdome -->
+            <div class="comparison-center-row">
                 <a href="forge-comparison.html?tab=configos" class="comparison-card" style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-color: #f39c12;">
                     <h3>Digital Data Forge</h3>
                     <div class="vs" style="color: #d68910;">vs</div>
