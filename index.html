@@ -44,26 +44,7 @@
             gap: 0.5rem;
         }
 
-        /* Top navigation menu */
-        .top-menu {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-        .top-menu a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 0.2px;
-            padding: 0.35rem 0.75rem;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.25);
-        }
-        .top-menu a:hover { background: rgba(255,255,255,0.2); }
+        
 
         .lang-select {
             appearance: none;
@@ -362,12 +343,6 @@
 </head>
 <body>
     <header class="hero">
-        <nav class="top-menu" aria-label="Primary">
-            <a href="/ddforge/index.html">Home</a>
-            <a href="/ddforge/forge-comparison.html">Comparisons</a>
-            <a href="/ddforge/roadmap.html">Roadmap</a>
-            <a href="/ddforge/thunderdome.html">Thunderdome</a>
-        </nav>
         <div class="header-controls">
             <select id="lang" class="lang-select" aria-label="Language">
                 <option value="en">EN</option>
@@ -395,8 +370,10 @@
             <p class="features-list" style="text-align: center;" data-i18n="hero_features">Ansible • Terraform • OpenTofu • PowerShell • Compliance Dashboard • STIG Viewer</p>
             
             <div class="cta-buttons">
-                <a href="https://digitaldata.co" class="btn btn-primary" data-i18n="cta_get_started">Get Started</a>
+                <a href="contact.html" class="btn btn-primary" data-i18n="cta_get_started">Get Started</a>
                 <a href="#comparisons" class="btn btn-secondary" data-i18n="cta_see_comparisons">See Comparisons</a>
+                <a href="roadmap.html" class="btn btn-secondary">Roadmap</a>
+                <a href="contact.html" class="btn btn-secondary">Contact</a>
             </div>
         </div>
     </header>
@@ -649,7 +626,7 @@
             <h2 class="section-title" data-i18n="ready_title">Ready to Get Started?</h2>
             
             <div class="cta-buttons">
-                <a href="https://digitaldata.co" class="btn btn-primary btn-lg" data-i18n="cta_get_started">Get Started</a>
+                <a href="contact.html" class="btn btn-primary btn-lg" data-i18n="cta_get_started">Get Started</a>
             </div>
         </div>
     </section>
