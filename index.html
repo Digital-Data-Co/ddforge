@@ -125,9 +125,23 @@
             margin-top: 2rem;
         }
 
-        /* Keep CTAs on one line on desktop */
-        @media (min-width: 769px) {
+        /* Wider CTA buttons and responsive behavior */
+        .cta-buttons .btn { min-width: 200px; text-align: center; }
+
+        /* Keep CTAs on one line on large screens */
+        @media (min-width: 1024px) {
             .cta-buttons { flex-wrap: nowrap; }
+        }
+
+        /* On tablets, allow wrapping into two columns */
+        @media (max-width: 1023px) and (min-width: 601px) {
+            .cta-buttons { flex-wrap: wrap; }
+            .cta-buttons .btn { flex: 1 1 45%; }
+        }
+
+        /* On phones, make buttons full-width stacked */
+        @media (max-width: 600px) {
+            .cta-buttons .btn { flex: 1 1 100%; width: 100%; min-width: 0; }
         }
 
         .btn {
