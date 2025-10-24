@@ -28,6 +28,21 @@
             position: relative;
         }
 
+        .announcement {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+            text-align: center;
+            padding: 0.5rem 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
+            backdrop-filter: blur(4px);
+        }
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
@@ -362,6 +377,7 @@
 </head>
 <body>
     <header class="hero">
+        <div class="announcement">See you at Indo Pacific 2025 in Honolulu</div>
         <div class="header-controls">
             <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
         </div>
@@ -449,7 +465,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">🧩</div>
                     <h3>Terramate Orchestration</h3>
-                    <p>Integrated Terramate: CLI integration, code generation, change detection UI, and orchestration phases 1–4.</p>
+                    <p>Integrated Terramate: CLI integration, code generation, change detection UI, and orchestration phases 1–6.</p>
                 </div>
 
                 <div class="feature-card">
