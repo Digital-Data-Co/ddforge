@@ -64,8 +64,8 @@
 </head>
 <body>
     <header class="hero">
+        <div style="position:absolute; top:0; left:0; right:0; background: rgba(255,255,255,0.12); color:#fff; text-align:center; padding:0.5rem 0.75rem; font-weight:700; letter-spacing:0.3px; border-bottom:1px solid rgba(255,255,255,0.25); backdrop-filter: blur(4px);">See you at Indo Pacific 2025 in Honolulu</div>
         <div class="header-controls">
-            <a href="https://digitaldata.co" class="btn btn-primary" style="padding: 0.5rem 1rem;">Get Started</a>
             <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
         </div>
         <div class="container">
@@ -75,12 +75,41 @@
                     <span style="font-weight:800; font-size:1.25rem;">Digital Data Forge</span>
                 </div>
             </a>
+            <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:0.5rem;">
+                <a href="index.html#comparisons" class="btn btn-primary" style="background:white; color:#1a2332;">See Comparisons</a>
+                <a href="roadmap.html" class="btn btn-primary" style="background:white; color:#1a2332;">Roadmap</a>
+                <a href="supported.html" class="btn btn-primary" style="background:white; color:#1a2332;">Supported</a>
+                <a href="thunderdome.html" class="btn btn-primary" style="background:white; color:#1a2332;">Thunderdome Ready</a>
+            </div>
+            <div style="display:flex; justify-content:center; margin-top:1rem;">
+                <a href="https://digitaldata.co" class="btn btn-primary">Get Started</a>
+            </div>
             <h1>Supported Platforms & Integrations</h1>
             <p>Cloud providers, infrastructure types, compliance frameworks, and key integrations.</p>
         </div>
     </header>
 
     <main>
+        <section class="section alt">
+            <div class="container">
+                <h2 class="section-title">What’s New</h2>
+                <p class="section-subtitle">Recent capabilities added to Forge</p>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Terramate Orchestration (Phases 1–6)</h3>
+                        <p>Cross-project dependencies, approval gates, drift detection, and auto-remediation.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Golden Image Catalog (v1)</h3>
+                        <p>Packer builds with catalog browsing and Terraform variable injection.</p>
+                    </div>
+                    <div class="card">
+                        <h3>OpenSCAP Remote Runner</h3>
+                        <p>Remote SCAP scans with STIG PDF/CSV and screenshot ZIP exports.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Cloud Providers -->
         <section class="section alt">
             <div class="container">
