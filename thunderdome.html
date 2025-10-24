@@ -483,31 +483,7 @@
             text-decoration: underline;
         }
 
-        /* Dark mode */
-        body.dark { background: #0b1220; color: #e5e7eb; }
-        body.dark .hero { background: linear-gradient(135deg, #0b1220 0%, #223a59 100%); }
-        body.dark .section-title { color: #e5e7eb; }
-        body.dark .section-subtitle { color: rgba(229,231,235,0.85); }
-        body.dark .compliance-card { background: #111827; border-color: #1f2937; color: #e5e7eb; box-shadow: none; }
-        body.dark .compliance-card h3 { color: #e5e7eb; }
-        body.dark .compliance-card p { color: #cbd5e1; }
-        body.dark .stig-table-wrapper { background: #111827; box-shadow: none; }
-        body.dark .stig-table th { background: #0f172a; color: #e5e7eb; }
-        body.dark .stig-table td { border-bottom: 1px solid #1f2937; color: #e5e7eb; }
-        body.dark .stig-table tr:hover { background: #0c1220; }
-        body.dark .comparison-matrix { background: #111827; box-shadow: none; }
-        body.dark .comparison-matrix th { background: #223a59; }
-        body.dark .comparison-matrix td { border-bottom: 1px solid #1f2937; color: #e5e7eb; }
-        body.dark .feature-card { background: linear-gradient(135deg, #0f172a 0%, #0b1220 100%); box-shadow: none; border-left-color: #22c55e; }
-        body.dark .feature-card h3 { color: #e5e7eb; }
-        body.dark .feature-card p { color: #cbd5e1; }
-        body.dark .stats-section { background: linear-gradient(135deg, #0f172a 0%, #0b1220 100%); }
-        body.dark .scenario-card { background: #111827; box-shadow: none; }
-        body.dark .scenario-card .requirements { background: #0f172a; }
-        body.dark .footer { background: #0b1220; }
-        body.dark a { color: #93c5fd; }
-
-        .theme-toggle { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+        
 
         .back-link {
             display: inline-block;
@@ -544,7 +520,6 @@
 <body>
     <!-- Hero Section -->
     <header class="hero">
-        <div style="position:absolute; top: 1rem; right: 1rem;"><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button></div>
         <div style="position:absolute; top:0; left:0; right:0; background: rgba(255,255,255,0.12); color:#fff; text-align:center; padding:0.5rem 0.75rem; font-weight:700; letter-spacing:0.3px; border-bottom:1px solid rgba(255,255,255,0.25); backdrop-filter: blur(4px);"><a href="https://events.afcea.org/tip25/Public/enter.aspx" style="color:inherit; text-decoration:none;">See you at TechNet Indo-Pacific 2025 | October 28-30, 2025, Honolulu, HI</a></div>
         <div class="hero-content">
             <div class="logo-container">
@@ -1074,22 +1049,7 @@
             </p>
         </div>
     </footer>
-    <script>
-        (function initPreferences(){
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') document.body.classList.add('dark');
-        })();
-        const themeBtn = document.getElementById('themeToggle');
-        if (themeBtn) {
-            themeBtn.addEventListener('click', ()=>{
-                document.body.classList.toggle('dark');
-                const d = document.body.classList.contains('dark');
-                localStorage.setItem('theme', d ? 'dark' : 'light');
-                themeBtn.textContent = d ? '☀️' : '🌙';
-            });
-            themeBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-        }
-    </script>
+    
 </body>
 </html>
 
