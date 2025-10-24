@@ -251,6 +251,9 @@
                 </select>
                 <button id="themeToggle" style="background: rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.4); border-radius:50%; width:36px; height:36px; cursor:pointer;">🌙</button>
             </div>
+            <div style="text-align:right; margin-top: 0.5rem;">
+                <button id="themeToggle2" style="background: rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.4); border-radius:50%; width:36px; height:36px; cursor:pointer;">🌙</button>
+            </div>
             <a href="index.html" style="text-decoration: none; color: inherit; display: inline-block;">
                 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
                     <img src="favicon.png" alt="Digital Data Forge Logo" style="width: 60px; height: 60px; background: transparent; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; border-radius: 50%;">
@@ -1531,7 +1534,8 @@
         }
         (function initI18n(){ const lang=localStorage.getItem('lang')||'en'; applyTranslations(lang); })();
         const langEl=document.getElementById('lang'); if(langEl){ langEl.addEventListener('change',e=>{ const v=e.target.value; localStorage.setItem('lang',v); applyTranslations(v); }); }
-        const themeBtn=document.getElementById('themeToggle'); if(themeBtn){ themeBtn.addEventListener('click',()=>{ document.body.classList.toggle('dark'); const d=document.body.classList.contains('dark'); localStorage.setItem('theme', d?'dark':'light'); themeBtn.textContent=d?'☀️':'🌙'; }); themeBtn.textContent=document.body.classList.contains('dark')?'☀️':'🌙'; }
+        const themeBtn=document.getElementById('themeToggle'); if(themeBtn){ themeBtn.addEventListener('click',()=>{ document.body.classList.toggle('dark'); const d=document.body.classList.contains('dark'); localStorage.setItem('theme', d?'dark':'light'); themeBtn.textContent=d?'☀️':'🌙'; const t2=document.getElementById('themeToggle2'); if(t2) t2.textContent=themeBtn.textContent; }); themeBtn.textContent=document.body.classList.contains('dark')?'☀️':'🌙'; }
+        const themeBtn2=document.getElementById('themeToggle2'); if(themeBtn2){ themeBtn2.addEventListener('click',()=>{ document.body.classList.toggle('dark'); const d=document.body.classList.contains('dark'); localStorage.setItem('theme', d?'dark':'light'); themeBtn2.textContent=d?'☀️':'🌙'; const t1=document.getElementById('themeToggle'); if(t1) t1.textContent=themeBtn2.textContent; }); themeBtn2.textContent=document.body.classList.contains('dark')?'☀️':'🌙'; }
         // Prevent automatic scroll on history navigation and ensure we stay at top
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
